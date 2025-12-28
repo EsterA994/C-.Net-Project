@@ -1,0 +1,115 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "DalFacade/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/DalFacade.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DalFacade.dll": {}
+        }
+      },
+      "DalList/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DalFacade": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DalList.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DalList.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DalFacade/1.0.0": {
+      "type": "project",
+      "path": "../DalFacade/DalFacade.csproj",
+      "msbuildProject": "../DalFacade/DalFacade.csproj"
+    },
+    "DalList/1.0.0": {
+      "type": "project",
+      "path": "../DalList/DalList.csproj",
+      "msbuildProject": "../DalList/DalList.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "DalFacade >= 1.0.0",
+      "DalList >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\huser\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj",
+      "projectName": "DalTest",
+      "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj",
+      "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
+      "outputPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalTest\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\huser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
+              "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj"
+            },
+            "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalList\\DalList.csproj": {
+              "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalList\\DalList.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
