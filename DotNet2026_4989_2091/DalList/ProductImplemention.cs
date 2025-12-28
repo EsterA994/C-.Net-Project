@@ -30,9 +30,12 @@ public class ProductImplemention : IProduct
     {
         if (!_products.contains(ProdId = id))
         {
-            throw new Exception("");
+            throw new IdNotFoundExceptions();
         }
-        else { return _products.find(ProdId = id); }
+        else
+        {
+            return _products.find(ProdId = id);
+        }
     }
     public List<Product> ReadAll()
     {
@@ -40,7 +43,11 @@ public class ProductImplemention : IProduct
     }
     public void Delete(int id)
     {
-        if (_products.contain(ProdId = id))
+        if (!_products.contains(ProdId = id))
+        {
+            throw new IdNotFoundExceptions();
+        }
+        else
         {
             _products.remove(ProdId = id);
             emptyId.add(id);
@@ -49,7 +56,12 @@ public class ProductImplemention : IProduct
     public void Update(Product product)
     {
         int index = _products.indexOf(prodID = product.ProdId);
-        if (index != -1)
+        if (index == -1)
+        {
+            throw new IdNotFoundExceptions();
+
+        }
+        else
         {
             _products[index] = product;
         }
