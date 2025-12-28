@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {}
+    "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {}
   },
   "projects": {
-    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
+    "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
+        "projectUniqueName": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
         "projectName": "DalFacade",
-        "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
+        "projectPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\DotNet2026_4989_2091\\DalFacade\\obj\\",
+        "outputPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
