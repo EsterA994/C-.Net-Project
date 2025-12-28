@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj": {}
+    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj": {}
   },
   "projects": {
-    "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
+    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
+        "projectUniqueName": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
         "projectName": "DalFacade",
-        "projectPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
+        "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\obj\\",
+        "outputPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalList\\DalList.csproj": {
+    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalList\\DalList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalList\\DalList.csproj",
+        "projectUniqueName": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalList\\DalList.csproj",
         "projectName": "DalList",
-        "projectPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalList\\DalList.csproj",
+        "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalList\\DalList.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalList\\obj\\",
+        "outputPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalList\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -89,8 +89,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
-                "projectPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj"
+              "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
+                "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj"
               }
             }
           }
@@ -118,14 +118,14 @@
         }
       }
     },
-    "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj": {
+    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj",
+        "projectUniqueName": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj",
         "projectName": "DalTest",
-        "projectPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj",
+        "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalTest\\DalTest.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalTest\\obj\\",
+        "outputPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -148,11 +148,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
-                "projectPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj"
+              "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
+                "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj"
               },
-              "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalList\\DalList.csproj": {
-                "projectPath": "Z:\\יד תשפו\\אינהורן אסתר\\C# .Net\\DotNet2026_4989_2091\\DalList\\DalList.csproj"
+              "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalList\\DalList.csproj": {
+                "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalList\\DalList.csproj"
               }
             }
           }

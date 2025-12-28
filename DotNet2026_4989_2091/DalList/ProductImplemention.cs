@@ -23,7 +23,7 @@ public class ProductImplemention : IProduct
             //לשנות למזהה רץ
             Product newProduct = product with { ProdId = 1 };
         }
-
+        //הערה
         return 0;
     }
     public Product Read(int id)
