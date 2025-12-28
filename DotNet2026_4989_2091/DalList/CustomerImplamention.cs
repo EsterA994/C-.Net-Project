@@ -1,31 +1,28 @@
 ﻿using DO;
 using DalApi;
+using static Dal.DataSource;
 
 namespace Dal;
-    public class CustomerImplamention : ICustomer
+
+internal class CustomerImplemention : ICustomer
 {
     public int Create(Customer customer)
     {
-        if (_customers.contains(CustId == customer.CustId))
+        if (_customers?.Any(c => c.CustId == customer.CustId) == null)
         {
             throw new IdAlreadyExistExceptions();
         }
-        else
-        {
-            _customers.Add(customer);
-        }
+        _customers?.Add(customer);
         return customer.CustId;
     }
-    public Custmer? Read(int id)
+    public Customer? Read(int id)
     {
-        if (!_customers.contains(CustId = id))
+        if (_customers?.Any(c => c.CustId == id) == null)
         {
             throw new IdNotFoundExceptions();
         }
-        else
-        {
-            return _customers.find(CustId = id);
-        }
+        return _customers?.Find(c => c.CustId == id);
+
     }
     public List<Customer> ReadAll()
     {
@@ -33,27 +30,20 @@ namespace Dal;
     }
     public void Delete(int id)
     {
-        if (!_customers.contains(CustId = id))
+        if (_customers?.Any(c => c.CustId == id) == null)
         {
             throw new IdNotFoundExceptions();
         }
-        else
-        {
-            _customers.remove(CustId = id);
-            emptyId.add(id);
-        }
+        _customers?.RemoveAll(c => c.CustId == id);
     }
     public void Update(Customer customer)
     {
-        int index = _customers.indexOf(CustId = customer.CustId);
+        int index = _customers.FindIndex(c => c.CustId == customer.CustId);
         if (index == -1)
         {
             throw new IdNotFoundExceptions();
 
         }
-        else
-        {
-            _customers[index] = customer;
-        }
+        _customers[index] = customer;
     }
 }
