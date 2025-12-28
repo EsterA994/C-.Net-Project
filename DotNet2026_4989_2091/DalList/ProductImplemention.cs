@@ -1,39 +1,38 @@
 ﻿using DO;
 using DalApi;
-//using static Dal.DataSource;
+using static Dal.DataSource;
 
 namespace Dal;
 
-public class ProductImplemention : IProduct
+internal class ProductImplemention : IProduct
 {
-    internal static List<int> emptyId = new List<int> { };
+    internal static List<int> emptyId = new List<int>();
 
     public int Create(Product product)
     {
-        if (emptyId.length > 0)
+        Product newProduct;
+        if (emptyId.Count > 0)
         {
-            Product newProduct = product with { ProdId = emptyId[0] };
-            emptyId.remove(emptyId[0]);
-            _products.Add(newProduct);
+            newProduct = product with { ProdId = emptyId[0] };
+            emptyId.Remove(emptyId[0]);
         }
         else
         {
             //לשנות למזהה רץ
-            Product newProduct = product with { ProdId = 1 };
+            newProduct = product with { ProdId = 1 };
         }
+        _products?.Add(newProduct);
 
-        return 0;
+        return newProduct.ProdId;
     }
     public Product? Read(int id)
     {
-        if (!_products.contains(ProdId = id))
+        if (_products?.Any(p => p.ProdId == id) == null)
         {
             throw new IdNotFoundExceptions();
         }
-        else
-        {
-            return _products.find(ProdId = id);
-        }
+        return _products?.Find(p => p.ProdId == id);
+
     }
     public List<Product> ReadAll()
     {
@@ -41,27 +40,21 @@ public class ProductImplemention : IProduct
     }
     public void Delete(int id)
     {
-        if (!_products.contains(ProdId = id))
+        if (_products?.Any(p => p.ProdId == id) == null)
         {
             throw new IdNotFoundExceptions();
         }
-        else
-        {
-            _products.remove(ProdId = id);
-            emptyId.add(id);
-        }
+        _products?.RemoveAll(p => p.ProdId == id);
+        emptyId.Add(id);
     }
     public void Update(Product product)
     {
-        int index = _products.indexOf(ProdId = product.ProdId);
+        int index = _products.FindIndex(p => p.ProdId == product.ProdId);
         if (index == -1)
         {
             throw new IdNotFoundExceptions();
 
         }
-        else
-        {
-            _products[index] = product;
-        }
+        _products[index] = product;
     }
 }

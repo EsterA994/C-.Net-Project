@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DO;
+﻿using DO;
 using DalApi;
+using Dal;
 
-namespace Dal
+namespace Dal;
+
+public class DalList : IDal
 {
-    public class DalList : IDal
-    {
-    }
+    public IProduct Product => new ProductImplemention();
+
+    public ISale Sale => new SaleImplamention();
+
+    public ICustomer Customer => new CustomerImplemention();
 }
+

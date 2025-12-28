@@ -1,3 +1,3 @@
 ﻿namespace DO;
 
-public enum ProdCategory {hgrfhg}
+public enum ProdCategory {קופסא,חצר,אלקטרוניקה,קלפים,פעוטות,הרכבה }

@@ -6,3 +6,8 @@ C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalL
 C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.AssemblyInfo.cs
 C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.csproj.CoreCompileInputs.cache
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.GeneratedMSBuildEditorConfig.editorconfig
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.AssemblyInfoInputs.cache
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.AssemblyInfo.cs
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.csproj.CoreCompileInputs.cache
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalList\obj\Debug\DalList.sourcelink.json

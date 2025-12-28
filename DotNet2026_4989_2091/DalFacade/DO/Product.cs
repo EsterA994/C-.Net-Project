@@ -8,5 +8,5 @@ public record Product(
     int QuantityInStock
     )
 {
-    public Product() : this(0, "", ProdCategory.hgrfhg, 0, 0) { }
+    public Product() : this(0, "", ProdCategory.קופסא, 0, 0) { }
 }
