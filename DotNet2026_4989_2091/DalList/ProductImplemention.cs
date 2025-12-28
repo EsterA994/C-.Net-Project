@@ -12,10 +12,10 @@ public class ProductImplemention : IProduct
     {
         if (product == null)
             return 0;
-        if (emptyId.length > 0)
+        if (emptyId.Count > 0)
         {
             Product newProduct = product with { ProdId = emptyId[0] };
-            emptyId.remove(emptyId[0]);
+            emptyId.Remove(emptyId[0]);
             _products.Add(newProduct);
         }
         else
