@@ -10,8 +10,6 @@ public class ProductImplemention : IProduct
 
     public int Create(Product product)
     {
-        if (product == null)
-            return 0;
         if (emptyId.length > 0)
         {
             Product newProduct = product with { ProdId = emptyId[0] };
@@ -26,7 +24,7 @@ public class ProductImplemention : IProduct
 
         return 0;
     }
-    public Product Read(int id)
+    public Product? Read(int id)
     {
         if (!_products.contains(ProdId = id))
         {
@@ -55,7 +53,7 @@ public class ProductImplemention : IProduct
     }
     public void Update(Product product)
     {
-        int index = _products.indexOf(prodID = product.ProdId);
+        int index = _products.indexOf(ProdId = product.ProdId);
         if (index == -1)
         {
             throw new IdNotFoundExceptions();
