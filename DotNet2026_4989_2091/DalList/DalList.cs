@@ -1,9 +1,6 @@
-﻿using DO;
-using DalApi;
-using Dal;
+﻿using DalApi;
 
 namespace Dal;
-
 public class DalList : IDal
 {
     public IProduct Product => new ProductImplemention();

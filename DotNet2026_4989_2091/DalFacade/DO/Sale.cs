@@ -4,7 +4,7 @@ public record Sale(
     int SaleId,
     int ProdId,
     int MinRequireQuantity,
-    int PriceInSale,
+    double PriceInSale,
     bool JustForClub,
     DateTime? StartDateSale,
     DateTime? StopDateSale

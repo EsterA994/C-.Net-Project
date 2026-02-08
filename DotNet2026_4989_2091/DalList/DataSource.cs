@@ -11,11 +11,19 @@ internal static class DataSource
     internal static class Config
     {
         internal const int _minProductId = 100000;
-       private static int _curProductId = _minProductId;
+        private static int _curProductId=_minProductId;
 
-        public static int GetCurProductId()
+        public static int CurProductId
         {
-            return _curProductId++;
+            get { return _curProductId++; }
+        }
+
+        internal const int _minSaleId = 100;
+        private static int _curSaleId = _minSaleId;
+
+        public static int CurSaleId
+        {
+            get { return _curSaleId++; }
         }
 
     }
