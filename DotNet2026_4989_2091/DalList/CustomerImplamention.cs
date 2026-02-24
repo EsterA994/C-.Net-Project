@@ -1,8 +1,8 @@
 ﻿using DO;
 using DalApi;
 using static Dal.DataSource;
-using Tools.LogManager;//
-using System.Reflaction;//
+using System.Reflection;
+using Tools;
 
 namespace Dal;
 
@@ -13,8 +13,8 @@ internal class CustomerImplemention : ICustomer
 
     public int Create(Customer customer)
     {
-        writeToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,///
-            MethodBase.GetCurrentMethod().Name, $"start create customer: {customer.custId},{customer.custName},{customer.address},{customer.phon}");///
+        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+            MethodBase.GetCurrentMethod().Name, $"start create customer: {customer.CustId},{customer.CustName},{customer.CustAddress}");
         var cust = from c in _customers
                    where c.CustId == customer.CustId
                    select c;
