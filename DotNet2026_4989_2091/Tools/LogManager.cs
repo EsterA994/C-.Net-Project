@@ -15,28 +15,28 @@ public static class LogManager
     {
         int year = DateTime.Now.Year;
         int month = DateTime.Now.Month;
-        return $"{path}\\{year}.{month}";
+        string logPathFolder = $@"{path}\{year}.{month}";
+        if (!Directory.Exists(logPathFolder))
+            Directory.CreateDirectory(logPathFolder);
+        return logPathFolder;
     }
 
     public static string GetFileLogPath(string logPathFolder)
     {
         int day = DateTime.Now.Day;
-        return $@"{logPathFolder}\{day}.log";
+        string logPathFile = $@"{logPathFolder}\{day}.log";
+        return logPathFile;
     }
+
     public static void WriteToLog(string projectName, string funcName, string message)
     {
         string logPathFolder = GetFolderLogPath();
         string logPathFile = GetFileLogPath(logPathFolder);
-        if (!Directory.Exists(logPathFolder))
-            Directory.CreateDirectory(logPathFolder);
-        if (!File.Exists(logPathFile))
-            File.Create(logPathFile);
-        string logPath = $"{logPathFile}";
-        using (StreamWriter writer = new StreamWriter(logPath))
+
+        using (StreamWriter writer = File.AppendText(logPathFile))
         {
             writer.WriteLine($"{DateTime.Now}\t{projectName}.{funcName}\t{message}");
         }
-
     }
     public static void ClearLogs()
     {
