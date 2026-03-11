@@ -2,13 +2,17 @@
 
 using DalApi;
 using DO;
+using System.Collections.Generic;
 using static Dal.DataSource;
+using static Dal.DataSource.Config;
 
 namespace Dal;
 
 internal class SaleImplamention : ISale
 {
     internal static List<int> emptyId = new List<int>();
+    private const string messageNotFound = "sale id is not found";
+    private const string messageAlreadyExists = "sale id is already exists";
 
     public int Create(Sale sale)
     {
@@ -20,8 +24,7 @@ internal class SaleImplamention : ISale
         }
         else
         {
-            //לשנות למזהה רץ
-            newSale = sale with { SaleId = 1 };
+            newSale = sale with { SaleId = CurSaleId };
         }
         _sales?.Add(newSale);
 
@@ -29,32 +32,42 @@ internal class SaleImplamention : ISale
     }
     public Sale? Read(int id)
     {
-        if (_sales?.Any(s => s.ProdId == id) == null)
-        {
-            throw new IdNotFoundExceptions();
-        }
-        return _sales?.Find(p => p.ProdId == id);
+        var sale = from s in _sales
+                   where s.ProdId == id
+                   select s;
+            if (sale == null)
+        
+            throw new DalIdNotFoundExceptions(messageNotFound);
+        return (Sale)sale;
 
     }
-    public List<Sale> ReadAll()
+    public List<Sale> ReadAll(Func<Sale, bool>? filter = null)
     {
-        return _sales;
+        var list = filter != null ?
+                   from s in _sales
+                   where filter(s)
+                   select s
+                   : _sales;
+        return list.ToList();
     }
     public void Delete(int id)
     {
-        if (_sales?.Any(s => s.SaleId == id) == null)
+        var sale = from s in _sales
+                   where s.SaleId == id
+                   select s;
+        if (sale == null)
         {
-            throw new IdNotFoundExceptions();
+            throw new DalIdNotFoundExceptions(messageNotFound);
         }
-        _sales?.RemoveAll(s => s.SaleId == id);
+        _sales?.Remove((Sale)sale);
         emptyId.Add(id);
     }
-    public void Update(Sale sale)
+    public void Update(Sale sale)//
     {
         int index = _sales.FindIndex(s => s.SaleId == sale.SaleId);
         if (index == -1)
         {
-            throw new IdNotFoundExceptions();
+            throw new DalIdNotFoundExceptions(messageNotFound);
 
         }
         _sales[index] = sale;

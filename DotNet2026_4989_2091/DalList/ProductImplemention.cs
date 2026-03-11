@@ -1,12 +1,15 @@
 ﻿using DO;
 using DalApi;
 using static Dal.DataSource;
+using static Dal.DataSource.Config;
 
 namespace Dal;
 
 internal class ProductImplemention : IProduct
 {
     internal static List<int> emptyId = new List<int>();
+    private const string messageNotFound = "product id is not found";
+    private const string messageAlreadyExists = "product id is already exists";
 
     public int Create(Product product)
     {
@@ -18,8 +21,7 @@ internal class ProductImplemention : IProduct
         }
         else
         {
-            //לשנות למזהה רץ
-            newProduct = product with { ProdId = 1 };
+            newProduct = product with { ProdId = CurProductId };
         }
         _products?.Add(newProduct);
 
@@ -27,32 +29,42 @@ internal class ProductImplemention : IProduct
     }
     public Product? Read(int id)
     {
-        if (_products?.Any(p => p.ProdId == id) == null)
-        {
-            throw new IdNotFoundExceptions();
-        }
-        return _products?.Find(p => p.ProdId == id);
+        var prod = from p in _products
+                   where p.ProdId == id
+                   select p;
+        if (prod == null)
 
+            throw new DalIdNotFoundExceptions(messageNotFound);
+
+        return (Product?)prod;
     }
-    public List<Product> ReadAll()
+    public List<Product> ReadAll(Func<Product, bool>? filter = null)/////
     {
-        return _products;
+        var list = filter != null ?
+                   from p in _products
+                   where filter(p)
+                   select p
+                   : _products;
+        return list.ToList();
     }
     public void Delete(int id)
     {
-        if (_products?.Any(p => p.ProdId == id) == null)
+        var prod = from p in _products
+                   where p.ProdId == id
+                   select p;
+        if (prod == null)
         {
-            throw new IdNotFoundExceptions();
+            throw new DalIdNotFoundExceptions(messageNotFound);
         }
-        _products?.RemoveAll(p => p.ProdId == id);
+        _products?.Remove((Product)prod);
         emptyId.Add(id);
     }
-    public void Update(Product product)
+    public void Update(Product product)/////מה עם שליפת שאילתה
     {
         int index = _products.FindIndex(p => p.ProdId == product.ProdId);
         if (index == -1)
         {
-            throw new IdNotFoundExceptions();
+            throw new DalIdNotFoundExceptions(messageNotFound);
 
         }
         _products[index] = product;
