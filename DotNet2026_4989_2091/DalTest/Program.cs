@@ -1,7 +1,8 @@
 ﻿using Dal;
 using DalApi;
 using DO;
-
+using System.Reflection;
+using Tools;
 
 public class Program
 {
@@ -15,14 +16,20 @@ public class Program
         catch (DalIdNotFoundExceptions ex)
         {
             Console.WriteLine(ex.Message);
+            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+            MethodBase.GetCurrentMethod().Name, $"ERROR: {ex.GetType().Name} - {ex.Message}");
         }
         catch (DalIdAlreadyExistExceptions ex)
         {
             Console.WriteLine(ex.Message);
+            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+            MethodBase.GetCurrentMethod().Name, $"ERROR: {ex.GetType().Name} - {ex.Message}");
         }
         catch (Exception ex)
         {
             Console.WriteLine("error...");
+            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+            MethodBase.GetCurrentMethod().Name, $"ERROR: {ex.GetType().Name} - {ex.Message}");
         }
         DisplayMenu();
 
