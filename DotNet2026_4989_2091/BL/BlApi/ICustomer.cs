@@ -1,6 +1,7 @@
-﻿namespace BlApi
+﻿using BO;
+
+namespace BlApi;
+
+public interface ICustomer : ICrud<Customer>
 {
-    internal class ICustomer
-    {
-    }
 }

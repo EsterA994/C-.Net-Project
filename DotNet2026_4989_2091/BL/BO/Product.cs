@@ -1,5 +1,5 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
+
 namespace BO;
 
 public class Product
