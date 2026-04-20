@@ -1,5 +1,6 @@
 ﻿
 using DalApi;
+using DO;
 using System.Reflection;
 using System.Xml.Linq;
 
@@ -82,6 +83,31 @@ namespace Dal
             Create(customer);
             LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
     MethodBase.GetCurrentMethod().Name, $"END update customer: Id={customer.CustId}, Name={customer.CustName}");
+        }
+
+        public int Create(Customer item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Customer? Read(Func<Customer, bool> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        Customer? ICrud<Customer>.Read(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Customer> ReadAll(Func<Customer, bool>? filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Customer item)
+        {
+            throw new NotImplementedException();
         }
     }
 }
