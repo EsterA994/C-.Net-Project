@@ -1,7 +1,8 @@
-﻿using DalApi;
-namespace Dal
+﻿/*using DalApi;
+
+namespace DalXml;
+
+internal class SaleImplementation : ISale
 {
-    internal class SaleImplementation : ISale
-    {
-    }
 }
+*/
