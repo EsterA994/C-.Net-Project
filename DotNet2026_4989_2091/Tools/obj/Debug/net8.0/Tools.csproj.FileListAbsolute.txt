@@ -1,0 +1,12 @@
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\bin\Debug\net8.0\Tools.deps.json
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\bin\Debug\net8.0\Tools.dll
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\bin\Debug\net8.0\Tools.pdb
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\Tools.GeneratedMSBuildEditorConfig.editorconfig
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\Tools.AssemblyInfoInputs.cache
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\Tools.AssemblyInfo.cs
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\Tools.csproj.CoreCompileInputs.cache
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\Tools.sourcelink.json
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\Tools.dll
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\refint\Tools.dll
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\Tools.pdb
+C:\שנה ב תכנות\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\Tools\obj\Debug\net8.0\ref\Tools.dll

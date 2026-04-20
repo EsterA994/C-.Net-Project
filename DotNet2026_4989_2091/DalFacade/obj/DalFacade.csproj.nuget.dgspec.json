@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {}
+    "C:\\שנה ב תכנות\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {}
   },
   "projects": {
-    "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
+    "C:\\שנה ב תכנות\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
+        "projectUniqueName": "C:\\שנה ב תכנות\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
         "projectName": "DalFacade",
-        "projectPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
-        "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\יד תשפו\\רובינסקי חנה\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\obj\\",
+        "projectPath": "C:\\שנה ב תכנות\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\DalFacade.csproj",
+        "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
+        "outputPath": "C:\\שנה ב תכנות\\c#\\פרויקטNET\\C-.Net-Project\\DotNet2026_4989_2091\\DalFacade\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\huser\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,7 +25,7 @@
           "net8.0"
         ],
         "sources": {
-          "c:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
