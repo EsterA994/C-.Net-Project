@@ -1,6 +1,6 @@
-﻿using DO;
+﻿using BO;
 
-namespace DalApi;
+namespace BlApi;
 
 public interface IProduct : ICrud<Product>
 {
