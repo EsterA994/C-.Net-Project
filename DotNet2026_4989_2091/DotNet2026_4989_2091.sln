@@ -3,11 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalTest", "DalTest\DalTest.csproj", "{4BB2D525-6007-4ED8-996D-3C7B3A7A8F4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalTest", "DalTest\DalTest.csproj", "{4BB2D525-6007-4ED8-996D-3C7B3A7A8F4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalFacade", "DalFacade\DalFacade.csproj", "{B8919C4E-4022-49B0-A58B-42AD2EC1CF92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalFacade", "DalFacade\DalFacade.csproj", "{B8919C4E-4022-49B0-A58B-42AD2EC1CF92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalList", "DalList\DalList.csproj", "{36D939AF-CF75-4938-BFAC-B0BF03F385F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DalList", "DalList\DalList.csproj", "{36D939AF-CF75-4938-BFAC-B0BF03F385F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj", "{575D7AB4-A7CD-45F7-B79F-BD806E98D8F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{7C23D898-B51B-4EE9-8116-C1D10613D2A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlTest", "BlTest\BlTest.csproj", "{0512E772-7DB8-4775-B51E-C50104B9585B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalXml", "DalXml\DalXml.csproj", "{8A2EC6E1-60E5-4372-A351-4033ED876085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		xml\customers.xml = xml\customers.xml
+		xml\dal-config.xml = xml\dal-config.xml
+		xml\data-config.xml = xml\data-config.xml
+		xml\products.xml = xml\products.xml
+		xml\sales.xml = xml\sales.xml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XML", "XML", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
@@ -32,11 +49,31 @@ Global
 		{36D939AF-CF75-4938-BFAC-B0BF03F385F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36D939AF-CF75-4938-BFAC-B0BF03F385F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36D939AF-CF75-4938-BFAC-B0BF03F385F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{575D7AB4-A7CD-45F7-B79F-BD806E98D8F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{575D7AB4-A7CD-45F7-B79F-BD806E98D8F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{575D7AB4-A7CD-45F7-B79F-BD806E98D8F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{575D7AB4-A7CD-45F7-B79F-BD806E98D8F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C23D898-B51B-4EE9-8116-C1D10613D2A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C23D898-B51B-4EE9-8116-C1D10613D2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C23D898-B51B-4EE9-8116-C1D10613D2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C23D898-B51B-4EE9-8116-C1D10613D2A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0512E772-7DB8-4775-B51E-C50104B9585B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0512E772-7DB8-4775-B51E-C50104B9585B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0512E772-7DB8-4775-B51E-C50104B9585B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0512E772-7DB8-4775-B51E-C50104B9585B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2EC6E1-60E5-4372-A351-4033ED876085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2EC6E1-60E5-4372-A351-4033ED876085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2EC6E1-60E5-4372-A351-4033ED876085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2EC6E1-60E5-4372-A351-4033ED876085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+<<<<<<< HEAD
 		SolutionGuid = {908CA639-BAD9-47A7-89F8-30D8436CCDE9}
+=======
+		SolutionGuid = {42283374-AC61-4D65-8FEA-2481FDA6139F}
+>>>>>>> main
 	EndGlobalSection
 EndGlobal

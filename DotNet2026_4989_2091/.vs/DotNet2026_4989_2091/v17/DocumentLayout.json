@@ -47,8 +47,8 @@
       "RelativeMoniker": "D:0:0:{36D939AF-CF75-4938-BFAC-B0BF03F385F6}|DalList\\DalList.csproj|solutionrelative:dallist\\datasource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|XML{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|C:\\\u05E9\u05E0\u05D4 \u05D1 \u05EA\u05DB\u05E0\u05D5\u05EA\\c#\\\u05E4\u05E8\u05D5\u05D9\u05E7\u05D8NET\\C-.Net-Project\\DotNet2026_4989_2091\\XML\\dal-config.xml.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|XML{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}|solutionrelative:XML\\dal-config.xml.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{5958A7CF-3151-4AC9-AB03-D79719EFEA6B}|XML (2){5958A7CF-3151-4AC9-AB03-D79719EFEA6B}|C:\\\u05E9\u05E0\u05D4 \u05D1 \u05EA\u05DB\u05E0\u05D5\u05EA\\c#\\\u05E4\u05E8\u05D5\u05D9\u05E7\u05D8NET\\C-.Net-Project\\DotNet2026_4989_2091\\XML\\dal-config.xml.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{5958A7CF-3151-4AC9-AB03-D79719EFEA6B}|XML (2){5958A7CF-3151-4AC9-AB03-D79719EFEA6B}|solutionrelative:XML\\dal-config.xml.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -68,7 +68,7 @@
               "RelativeDocumentMoniker": "DalTest\\Program.cs",
               "ToolTip": "C:\\\u05E9\u05E0\u05D4 \u05D1 \u05EA\u05DB\u05E0\u05D5\u05EA\\c#\\\u05E4\u05E8\u05D5\u05D9\u05E7\u05D8NET\\C-.Net-Project\\DotNet2026_4989_2091\\DalTest\\Program.cs",
               "RelativeToolTip": "DalTest\\Program.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowBIAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAgwBEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-01T17:25:41.467Z",
               "IsPinned": true,

@@ -1,7 +1,11 @@
 ﻿using DalApi;
 
 namespace Dal;
+<<<<<<< HEAD
 sealed internal class DalList : IDal
+=======
+public class DalList : IDal
+>>>>>>> main
 {
     private  readonly DalList instance=new DalList();
 
