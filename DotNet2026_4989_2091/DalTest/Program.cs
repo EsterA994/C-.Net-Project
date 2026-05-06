@@ -1,22 +1,14 @@
 ﻿using Dal;
 using DalApi;
 using DO;
-<<<<<<< HEAD
-//שלב 7 d
-=======
 using System.Reflection;
 using Tools;
->>>>>>> main
 
 public class Program
 {
     private static IDal s_dal = new DalList();
     static void Main(string[] args)
-<<<<<<< HEAD
-    { 
-=======
     {
->>>>>>> main
         try
         {
             Initialization.Initialize(s_dal);
@@ -24,29 +16,20 @@ public class Program
         catch (DalIdNotFoundExceptions ex)
         {
             Console.WriteLine(ex.Message);
-<<<<<<< HEAD
-=======
             LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
             MethodBase.GetCurrentMethod().Name, $"ERROR: {ex.GetType().Name} - {ex.Message}");
->>>>>>> main
         }
         catch (DalIdAlreadyExistExceptions ex)
         {
             Console.WriteLine(ex.Message);
-<<<<<<< HEAD
-=======
             LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
             MethodBase.GetCurrentMethod().Name, $"ERROR: {ex.GetType().Name} - {ex.Message}");
->>>>>>> main
         }
         catch (Exception ex)
         {
             Console.WriteLine("error...");
-<<<<<<< HEAD
-=======
             LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
             MethodBase.GetCurrentMethod().Name, $"ERROR: {ex.GetType().Name} - {ex.Message}");
->>>>>>> main
         }
         DisplayMenu();
 
@@ -65,10 +48,6 @@ public class Program
             if (!int.TryParse(Console.ReadLine(), out int choice))
             {
                 Console.WriteLine("בחירה לא תקינה, אנא נסה שוב.");
-<<<<<<< HEAD
-                //continue;
-=======
->>>>>>> main
             }
             switch (choice)
             {
@@ -116,11 +95,7 @@ public class Program
                 }
                 break;
             case 6:
-<<<<<<< HEAD
-                // במקום DisplayMenu();
-=======
                 DisplayMenu();
->>>>>>> main
                 return;
             case 7:
                 exit();
@@ -271,8 +246,4 @@ public class Program
         int id = int.Parse(Console.ReadLine());
         return id;
     }
-<<<<<<< HEAD
-}
-=======
 } 
->>>>>>> main

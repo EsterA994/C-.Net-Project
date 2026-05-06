@@ -12,10 +12,6 @@ internal class ProductImplemention : IProduct
 {
     internal static List<int> emptyId = new List<int>();
     private const string messageNotFound = "product id is not found";
-<<<<<<< HEAD
-    private const string messageAlreadyExists = "product id is already exists";
-=======
->>>>>>> main
 
     public int Create(Product product)
     {
@@ -54,18 +50,6 @@ internal class ProductImplemention : IProduct
 
     public Product? Read(int id)
     {
-<<<<<<< HEAD
-        var prod = from p in _products
-                   where p.ProdId == id
-                   select p;
-        if (prod == null)
-
-            throw new DalIdNotFoundExceptions(messageNotFound);
-
-        return (Product?)prod;
-    }
-    public List<Product> ReadAll(Func<Product, bool>? filter = null)/////
-=======
         LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
     MethodBase.GetCurrentMethod().Name, $"START read product by id: Id={id}");
         var prod = from p in _products
@@ -79,7 +63,6 @@ internal class ProductImplemention : IProduct
         return product;
     }
     public List<Product> ReadAll(Func<Product, bool>? filter = null)
->>>>>>> main
     {
         var list = filter != null ?
                    from p in _products
@@ -93,32 +76,20 @@ internal class ProductImplemention : IProduct
         var prod = from p in _products
                    where p.ProdId == id
                    select p;
-<<<<<<< HEAD
-        if (prod == null)
-        {
-            throw new DalIdNotFoundExceptions(messageNotFound);
-        }
-        _products?.Remove((Product)prod);
-=======
         Product product = prod.FirstOrDefault();
         if (product == null)
         {
             throw new DalIdNotFoundExceptions(messageNotFound);
         }
         _products?.Remove(product);
->>>>>>> main
         emptyId.Add(id);
     }
-    public void Update(Product product)/////מה עם שליפת שאילתה
+    public void Update(Product product)
     {
         int index = _products.FindIndex(p => p.ProdId == product.ProdId);
         if (index == -1)
         {
             throw new DalIdNotFoundExceptions(messageNotFound);
-<<<<<<< HEAD
-
-=======
->>>>>>> main
         }
         _products[index] = product;
     }
