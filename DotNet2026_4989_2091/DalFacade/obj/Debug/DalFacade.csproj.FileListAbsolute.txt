@@ -1,0 +1,37 @@
+D:\תכנות\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+D:\תכנות\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfoInputs.cache
+D:\תכנות\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfo.cs
+D:\תכנות\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfo.cs
+C:\Users\user\Desktop\תכנות יד תשפו\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.csproj.CoreCompileInputs.cache
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfoInputs.cache
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfo.cs
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.csproj.CoreCompileInputs.cache
+Z:\יד תשפו\אינהורן אסתר\C# .Net\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.sourcelink.json
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfoInputs.cache
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfo.cs
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.csproj.CoreCompileInputs.cache
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.sourcelink.json
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfoInputs.cache
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.AssemblyInfo.cs
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.csproj.CoreCompileInputs.cache
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.sourcelink.json
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\bin\DalFacade.deps.json
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\bin\DalFacade.dll
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\bin\DalFacade.pdb
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.dll
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\refint\DalFacade.dll
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.pdb
+Z:\Handasa\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\ref\DalFacade.dll
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\bin\DalFacade.deps.json
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\bin\DalFacade.dll
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\bin\DalFacade.pdb
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.dll
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\refint\DalFacade.dll
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\DalFacade.pdb
+Z:\יד תשפו\רובינסקי חנה\c#\פרויקטNET\C-.Net-Project\DotNet2026_4989_2091\DalFacade\obj\Debug\ref\DalFacade.dll
