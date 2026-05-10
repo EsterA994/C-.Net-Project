@@ -6,12 +6,19 @@ using Tools;
 
 public class Program
 {
-    private static IDal s_dal = new DalList();
+    private static IDal s_dal = DalApi.Factory.Get;
     static void Main(string[] args)
     {
         try
         {
-            Initialization.Initialize(s_dal);
+            s_dal = DalApi.Factory.Get;
+            Console.WriteLine("Do you want to initialize data? (Y/N)");
+            string? answer = Console.ReadLine();
+
+            if (answer?.ToUpper() == "Y")
+            {
+                Initialization.Initialize(s_dal);
+            }
         }
         catch (DalIdNotFoundExceptions ex)
         {

@@ -2,9 +2,21 @@
 
 namespace Dal;
 
-public class DalXml : IDal
+internal sealed class DalXml : IDal
 {
-    IProduct Product = new ProductIImplementation();
-    IProduct Customer = new CustomerIImplementation();
-    IProduct Product = new ProductIImplementation();
+    private DalXml instance = new DalXml();
+
+    public DalXml Instance
+    {
+        get { return instance = new DalXml(); }
+    }    
+
+    private DalXml()
+    {
+        instance = new DalXml();
+    }
+
+    public IProduct Product => new ProductImplementation();
+    public ISale Sale => new SaleImplementation();
+    public ICustomer Customer => new CustomerImplementation();
 }
