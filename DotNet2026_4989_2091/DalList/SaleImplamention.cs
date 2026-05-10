@@ -34,8 +34,6 @@ internal class SaleImplamention : ISale
                    where filter(s)
                    select s;
         Sale? sale2 = sale.FirstOrDefault();
-        if (sale2 == null)
-            throw new DalIdNotFoundExceptions(messageNotFound);
         return sale2;
     }
     public Sale? Read(int id)

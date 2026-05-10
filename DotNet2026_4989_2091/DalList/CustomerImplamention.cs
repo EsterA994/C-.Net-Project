@@ -34,8 +34,6 @@ internal class CustomerImplemention : ICustomer
                    where filter(c)
                    select c;
         Customer? customer = cust.FirstOrDefault();
-        if (customer != null)
-            throw new DalIdNotFoundExceptions(messageNotFound);
         LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
     MethodBase.GetCurrentMethod().Name, $"END read customer by condition: found customer Id={customer.CustId}");
         return customer;

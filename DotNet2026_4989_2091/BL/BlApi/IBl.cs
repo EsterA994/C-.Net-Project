@@ -1,8 +1,7 @@
-﻿using BlApi;
+﻿
+namespace BL;
 
-namespace BL.BlApi;
-
-internal class IBl
+public interface IBl
 {
     IProduct Product { get; }
     ISale Sale { get; }

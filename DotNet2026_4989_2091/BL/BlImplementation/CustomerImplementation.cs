@@ -1,57 +1,136 @@
-﻿using BlApi;
-using BO;
+﻿using BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DO.;
+using DO;
 namespace BL
 {
     internal class CustomerImplementation : ICustomer
     {
+
         private DalApi.IDal _dal = DalApi.Factory.Get;
+
         public int Create(BO.Customer item)
         {
-            ValidateCustomerFields(item);
+            // 1. שלב הוולידציה (מחוץ ל-try)
+            ValidateCustomer(item);
 
-            // 2. שלב הפנייה ל-DAL - כאן תופסים רק שגיאות שנובעות מהשכבה שמתחת
+            // 2. שלב הפנייה ל-DAL (בתוך try)
             try
             {
                 // המרה באמצעות ה-Tools שלך (מ-BO ל-DO)
                 DO.Customer doCustomer = item.ToDO();
+
                 return _dal.Customer.Create(doCustomer);
             }
-            catch (Exception ex)
+            catch (DalIdAlreadyExistExceptions ex)
             {
-                // עטיפת חריגת ה-DAL בתוך חריגת BL והמשך זריקה למעלה
-                throw new BO.BlIdAlreadyExistsException($"Creation failed: Customer with ID {item.CustId} already exists.", ex);
+                // תרגום שגיאת ה-DAL לשגיאת BL כדי שה-UI לא יכיר את ה-DAL!
+                throw new BlIdAlreadyExistExceptions($"Customer with ID {item.CustId} already exists.", ex);
             }
         }
 
-        /// <summary>
-        /// Internal validation method for all edge cases of a customer.
-        /// These exceptions are thrown directly to the PL.
-        /// </summary>
-        private void ValidateCustomerFields(BO.Customer item)
+        public void Delete(int id)
         {
-            // מקרה קצה: אובייקט ריק
+            if (id <= 0)
+                throw new BlInvalidInputException("Invalid ID. Customer ID must be a positive number.");
+
+            try
+            {
+                // 2. שלב הפנייה ל-DAL
+                _dal.Customer.Delete(id);
+            }
+            catch (DO.DalIdNotFoundExceptions ex) // תופסים את שגיאת השכבה הנמוכה
+            {
+                // זורקים שגיאת BL מתאימה (למשל BlDoesNotExistException)
+                throw new BO.BlDoesNotExistException($"Customer with ID {id} was not found.", ex);
+            }
+        }
+
+        public bool IsExsitsCust(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                    throw new BlInvalidInputException("Invalid ID. Customer ID must be a positive number.");
+                // מנסים לקרוא את הלקוח מה-DAL
+                _dal.Customer.Read(id);
+                return true; // אם הגענו לכאן, סימן שהוא קיים
+            }
+            catch (DalIdNotFoundExceptions) // כדאי לשנות ל- DO.DalIdNotFoundExceptions
+            {
+                return false;
+            }
+        }
+
+
+        public BO.Customer? Read(Func<BO.Customer, bool> filter)
+        {
+
+
+            DO.Customer? doCust = _dal.Customer.Read(doItem => filter(doItem.ToBO()));
+
+            return doCust?.ToBO();
+        }
+
+        public BO.Customer? Read(int id)
+        {
+            if (id <= 0)
+                throw new BlInvalidInputException("Invalid ID. Customer ID must be a positive number.");
+
+            try
+            {
+
+                DO.Customer? getCustomer = _dal.Customer.Read(id);
+
+                return getCustomer?.ToBO();
+            }
+            catch (DO.DalIdNotFoundExceptions ex) // תפיסת השגיאה מה-DAL
+            {
+                // זריקת שגיאה של שכבת ה-BL
+                throw new BO.BlDoesNotExistException($"Customer with ID {id} does not exist in the system.", ex);
+            }
+        }
+
+
+        public List<BO.Customer> ReadAll(Func<BO.Customer, bool>? filter = null)
+        {
+            return (from doCust in _dal.Customer.ReadAll(doItem => filter?.Invoke(doItem.ToBO()) ?? true)
+                    select doCust?.ToBO()).ToList();
+        }
+
+        public void Update(BO.Customer item)
+        {
+            // משתמשים בדיוק באותה פונקציית ולידציה!
+            ValidateCustomer(item);
+
+            try
+            {
+                DO.Customer doCustomer = item.ToDO();
+                _dal.Customer.Update(doCustomer);
+            }
+            catch (DO.DalIdNotFoundExceptions ex) // זה הסוג הנכון לתפוס ב-Update
+            {
+                throw new BO.BlDoesNotExistException($"Customer with ID {item.CustId} does not exist.", ex);
+            }
+        }
+
+        private void ValidateCustomer(BO.Customer item)
+        {
             if (item == null)
                 throw new BO.BlInvalidInputException("Customer data is missing (null).");
 
-            // מקרה קצה: מזהה לא תקין
             if (item.CustId <= 0)
                 throw new BO.BlInvalidInputException("Customer ID must be a positive number.");
 
-            // מקרה קצה: שם ריק או רק רווחים
             if (string.IsNullOrWhiteSpace(item.CustName))
                 throw new BO.BlInvalidInputException("Customer name is required.");
 
-            // מקרה קצה: כתובת ריקה
             if (string.IsNullOrWhiteSpace(item.CustAddress))
                 throw new BO.BlInvalidInputException("Customer address is required.");
 
-            // מקרה קצה: טלפון - בדיקת אורך ותוכן (רק ספרות)
             if (string.IsNullOrWhiteSpace(item.CustPhone))
                 throw new BO.BlInvalidInputException("Customer phone number is required.");
 
@@ -60,39 +139,8 @@ namespace BL
 
             if (!item.CustPhone.All(char.IsDigit))
                 throw new BO.BlInvalidInputException("Phone number must contain digits only.");
-
-            // כאן ניתן להוסיף בדיקות נוספות כמו תקינות פורמט אימייל וכדומה
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsExsitsCust(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Customer? Read(Func<Customer, bool> filter)
-        {
-          DO.Customer customer = _dal.Customer.Read(c => c.Cus);
-            return 
-        }
-
-        public Customer? Read(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Customer> ReadAll(Func<Customer, bool>? filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Customer item)
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }

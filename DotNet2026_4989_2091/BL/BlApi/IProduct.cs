@@ -1,6 +1,6 @@
 ﻿using BO;
 
-namespace BlApi;
+namespace BL;
 
 public interface IProduct
 {    public int Create(Product item);
