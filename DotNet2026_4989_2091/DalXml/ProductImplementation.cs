@@ -5,7 +5,7 @@ using DalXml;
 
 namespace Dal;
 
-internal class ProductImplement : IProduct
+internal class ProductIImplementationation : IProduct
 {
     XElement productXml;
 

@@ -8,36 +8,36 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class SaleImplementation : ISale
+    internal class SaleImplementationation : ISale
     {
         public int Create(Sale item)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public Sale? Read(Func<Sale, bool> filter)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public Sale? Read(int id)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public List<Sale> ReadAll(Func<Sale, bool>? filter = null)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public void Update(Sale item)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
     }
 }

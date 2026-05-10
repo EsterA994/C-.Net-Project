@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.BlImplementation
+namespace BL.BlImplementationation
 {
     internal class Bl : BlApi.IBl
     {

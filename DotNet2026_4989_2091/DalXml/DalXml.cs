@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DalApi;
 
-namespace Dal
+namespace Dal;
+
+public class DalXml : IDal
 {
-    internal class DalXml
-    {
-    }
+    IProduct Product = new ProductIImplementation();
+    IProduct Customer = new CustomerIImplementation();
+    IProduct Product = new ProductIImplementation();
 }

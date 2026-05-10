@@ -6,7 +6,7 @@ using Tools;
 
 namespace Dal;
 
-internal class CustomerImplemention : ICustomer
+internal class CustomerImplementation : ICustomer
 {
     private const string messageNotFound = "customer id is not found";
     private const string messageAlreadyExists = "customer id is already exists";

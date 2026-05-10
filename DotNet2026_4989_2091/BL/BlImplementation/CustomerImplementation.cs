@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using DO.;
 namespace BL
 {
-    internal class CustomerImplementation : ICustomer
+    internal class CustomerIImplementationation : ICustomer
     {
         private DalApi.IDal _dal = DalApi.Factory.Get;
         public int Create(BO.Customer item)
@@ -66,12 +66,12 @@ namespace BL
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public bool IsExsitsCust(int id)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public Customer? Read(Func<Customer, bool> filter)
@@ -82,17 +82,17 @@ namespace BL
 
         public Customer? Read(int id)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public List<Customer> ReadAll(Func<Customer, bool>? filter = null)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public void Update(Customer item)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
     }
 }

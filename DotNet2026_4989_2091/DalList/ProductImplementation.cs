@@ -8,7 +8,7 @@ using static Dal.DataSource.Config;
 
 namespace Dal;
 
-internal class ProductImplemention : IProduct
+internal class ProductImplementation : IProduct
 {
     internal static List<int> emptyId = new List<int>();
     private const string messageNotFound = "product id is not found";

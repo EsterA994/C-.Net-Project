@@ -9,41 +9,41 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class ProductIImplementation : IProduct
+    internal class ProductImplementationation : IProduct
     {
         public int Create(Product item)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public void GetSales(ProductInOrder productInOrder, bool isClubMember)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public Product? Read(Func<Product, bool> filter)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public Product? Read(int id)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public List<Product> ReadAll(Func<Product, bool>? filter = null)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
 
         public void Update(Product item)
         {
-            throw new NotImplementedException();
+            throw new NotIImplementationedException();
         }
     }
 }
