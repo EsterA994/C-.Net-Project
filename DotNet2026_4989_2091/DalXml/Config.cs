@@ -38,14 +38,13 @@ internal static class Config
     }
 
 
-
     private static int productNum = 100000;
     public static int ProductNum
     {
         get {
             dataXml = XElement.Load(dataPath);
 
-            var idElement = dataXml.Element(PRODUCT_NUM);
+            XElement? idElement = dataXml.Element(PRODUCT_NUM);
 
             if (idElement == null)
                 throw new Exception("Element not found in XML");

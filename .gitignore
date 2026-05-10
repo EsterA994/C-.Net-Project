@@ -59,3 +59,4 @@ publish/
 *.coverage
 *.coveragexml
 coverage/
+/DotNet2026_4989_2091/BL/BlImplementation/SaleImplementation.cs

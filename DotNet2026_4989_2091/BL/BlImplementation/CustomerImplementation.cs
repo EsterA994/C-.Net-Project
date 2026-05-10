@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DO;
 namespace BL
 {
-    internal class CustomerImplementation : ICustomer
+    internal class CustomerIImplementationation : ICustomer
     {
 
         private DalApi.IDal _dal = DalApi.Factory.Get;

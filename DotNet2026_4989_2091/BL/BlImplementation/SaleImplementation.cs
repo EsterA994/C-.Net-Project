@@ -1,5 +1,4 @@
 ﻿using BO;
-using DalApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class SaleImplementation : ISale
+    internal class SaleImplementationation : ISale
     {
-        private DalApi.IDal _dal = DalApi.Factory.Get;
-
-        public int Create(BO.Sale item)
+        public int Create(Sale item)
         {
             // 1. שלב הוולידציה (מחוץ ל-try) - בדיקה עסקית לפני פנייה לנתונים
             ValidateSale(item);

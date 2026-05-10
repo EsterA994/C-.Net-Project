@@ -8,7 +8,7 @@ using static Dal.DataSource.Config;
 
 namespace Dal;
 
-internal class ProductImplemention : IProduct
+internal class ProductImplementation : IProduct
 {
     internal static List<int> emptyId = new List<int>();
     private const string messageNotFound = "product id is not found";
@@ -41,10 +41,13 @@ internal class ProductImplemention : IProduct
                    where filter(p)
                    select p;
         Product? product = prod.FirstOrDefault();
+        
         if (product == null)
-            throw new DalIdNotFoundExceptions(messageNotFound);
+            throw new DalIdNotFoundExceptions("product not found");
+        
         LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
             MethodBase.GetCurrentMethod().Name, $"END read product by condition: found customer Id={product.ProdId}");
+        
         return product;
     }
 

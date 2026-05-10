@@ -3,10 +3,10 @@
 namespace Dal;
 public class DalList : IDal
 {
-    public IProduct Product => new ProductImplemention();
+    public IProduct Product => new ProductImplementation();
 
-    public ISale Sale => new SaleImplamention();
+    public ISale Sale => new SaleImplementation();
 
-    public ICustomer Customer => new CustomerImplemention();
+    public ICustomer Customer => new CustomerImplementation();
 }
 
