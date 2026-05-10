@@ -1,4 +1,4 @@
-﻿namespace Dal;
+﻿namespace DO;
 
 [Serializable]
 public class DalIdNotFoundExceptions: Exception
