@@ -1,113 +1,191 @@
-﻿/*
+﻿
+//using DalApi;
+//using DO;
+//using System.Reflection;
+//using System.Xml.Linq;
+//using Tools;
+
+//namespace Dal
+//{
+//    internal class CustomerImplementation : ICustomer
+//    {
+//        const string ARRAY_OF_CUSTOMER = "ArrayOfCustomer";
+//        XElement customers = new XElement(ARRAY_OF_CUSTOMER);
+//        public int Create(Customer customer)
+//        {
+
+//            return customer.CustId;
+//        }
+
+//        public Customer? Read(Func<Customer, bool> filter)
+//        {
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//                MethodBase.GetCurrentMethod().Name, $"START read customer by condition");
+//            var cust = from c in _customers
+//                       where filter(c)
+//                       select c;
+//            Customer? customer = cust.FirstOrDefault();
+//            if (customer != null)
+//                throw new DalIdNotFoundExceptions(messageNotFound);
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//        MethodBase.GetCurrentMethod().Name, $"END read customer by condition: found customer Id={customer.CustId}");
+//            return customer;
+//        }
+
+//        public Customer? Read(int id)
+//        {
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//        MethodBase.GetCurrentMethod().Name, $"START read customer by id: Id={id}");
+//            var cust = from c in _customers
+//                       where c.CustId == id
+//                       select c;
+//            Customer? customer = cust.FirstOrDefault();
+//            if (customer == null)
+//                throw new DalIdNotFoundExceptions(messageNotFound);
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//        MethodBase.GetCurrentMethod().Name, $"END read customer by id: Id={customer.CustId}, Name={customer.CustName}");
+//            return customer;
+//        }
+//        public List<Customer> ReadAll(Func<Customer, bool>? filter = null)
+//        {
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//    MethodBase.GetCurrentMethod().Name, $"START read all customers");
+//            var list = filter != null ?
+//                       from c in _customers
+//                       where filter(c)
+//                       select c
+//                        : _customers;
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//    MethodBase.GetCurrentMethod().Name, $"END read all customers: count={list?.ToList().Count}");
+//            return list.ToList();
+//        }
+
+//        public void Delete(int id)
+//        {
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//    MethodBase.GetCurrentMethod().Name, $"START delete customer: Id={id}");
+//            var cust = from c in _customers
+//                       where c.CustId == id
+//                       select c;
+//            Customer? customer = cust.FirstOrDefault();
+//            if (customer == null)
+//                throw new DalIdNotFoundExceptions(messageNotFound);
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//    MethodBase.GetCurrentMethod().Name, $"END delete customer id: {id}");
+//            _customers?.Remove(customer);
+//        }
+//        public void Update(Customer customer)
+//        {
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//    MethodBase.GetCurrentMethod().Name, $"START update customer: Id={customer.CustId}");
+//            if (Read(customer.CustId) == null)
+//                throw new DalIdNotFoundExceptions(messageNotFound);
+//            Delete(customer.CustId);
+//            Create(customer);
+//            LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
+//    MethodBase.GetCurrentMethod().Name, $"END update customer: Id={customer.CustId}, Name={customer.CustName}");
+//        }
+//    }
+//}
 using DalApi;
 using DO;
-using System.Reflection;
-using System.Xml.Linq;
-
-namespace DalXml;
-
-internal class CustomerImplementation:ICustomer
+using System.Xml.Serialization;
+namespace Dal
 {
-    const string ARRAY_OF_CUSTOMER = "ArrayOfCustomer";
-    XElement customers = new XElement(ARRAY_OF_CUSTOMER);
-    public int Create(Customer customer)
+    internal class CustomerImplementation : ICustomer
     {
-       
-        return customer.CustId;
-    }
+        string customerExlPath = @"../xml/customers.xml";
+        private readonly XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Customer>));
+        static List<Customer> customers;
+        private const string messageNotFound = "customer id is not found";
 
-    public Customer? Read(Func<Customer, bool> filter)
-    {
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-            MethodBase.GetCurrentMethod().Name, $"START read customer by condition");
-        var cust = from c in _customers
-                   where filter(c)
-                   select c;
-        Customer? customer = cust.FirstOrDefault();
-        if (customer != null)
-            throw new DalIdNotFoundExceptions(messageNotFound);
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-    MethodBase.GetCurrentMethod().Name, $"END read customer by condition: found customer Id={customer.CustId}");
-        return customer;
-    }
+        // פונקציה פנימית לקריאה מהקובץ (מחזירה רשימה, לא משנה את הלוגיקה)
+        private List<Customer> ReadCustomersFromFile()
+        {
+            using (StreamReader sr = new StreamReader(customerExlPath))
+            {
+                customers = xmlSerializer.Deserialize(sr) as List<Customer>;
+            }
+            return customers ?? new List<Customer>();
+        }
 
-    public Customer? Read(int id)
-    {
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-    MethodBase.GetCurrentMethod().Name, $"START read customer by id: Id={id}");
-        var cust = from c in _customers
-                   where c.CustId == id
-                   select c;
-        Customer? customer = cust.FirstOrDefault();
-        if (customer == null)
-            throw new DalIdNotFoundExceptions(messageNotFound);
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-    MethodBase.GetCurrentMethod().Name, $"END read customer by id: Id={customer.CustId}, Name={customer.CustName}");
-        return customer;
-    }
-    public List<Customer> ReadAll(Func<Customer, bool>? filter = null)
-    {
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-MethodBase.GetCurrentMethod().Name, $"START read all customers");
-        var list = filter != null ?
-                   from c in _customers
+        // פונקציה פנימית לכתיבה לקובץ
+        private void WriteCustomersToFile(List<Customer> list)
+        {
+            using (StreamWriter sw = new StreamWriter(customerExlPath))
+            {
+                xmlSerializer.Serialize(sw, list);
+            }
+        }
+
+        public int Create(Customer item)
+        {
+            customers = ReadCustomersFromFile();
+            customers.Add(item);
+            WriteCustomersToFile(customers);
+            return item.CustId;
+        }
+
+        public void Delete(int id)
+        {
+            customers = ReadCustomersFromFile();
+            var cust = from c in customers
+                       where c.CustId == id
+                       select c;
+            Customer? cust2 = cust.FirstOrDefault();
+            if (cust2 == null)
+            {
+                throw new DalIdNotFoundExceptions(messageNotFound);
+            }
+            customers.Remove(cust2);
+            WriteCustomersToFile(customers);
+        }
+
+        public Customer? Read(Func<Customer, bool> filter)
+        {
+            customers = ReadCustomersFromFile();
+            var cust = from c in customers
+                       where filter(c)
+                       select c;
+            Customer? cust2 = cust.FirstOrDefault();
+            if (cust2 == null)
+                throw new DalIdNotFoundExceptions("messageNotFound");
+            return cust2;
+        }
+
+        public Customer? Read(int id)
+        {
+            customers = ReadCustomersFromFile();
+            var cust = from c in customers
+                       where c.CustId == id
+                       select c;
+            Customer? cust2 = cust.FirstOrDefault();
+            if (cust2 == null)
+                throw new DalIdNotFoundExceptions("messageNotFound");
+            return cust2;
+        }
+
+        public List<Customer> ReadAll(Func<Customer, bool>? filter = null)
+        {
+            customers = ReadCustomersFromFile();
+            var list = filter != null ?
+                   from c in customers
                    where filter(c)
                    select c
-                    : _customers;
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-MethodBase.GetCurrentMethod().Name, $"END read all customers: count={list?.ToList().Count}");
-        return list.ToList();
-    }
+                   : customers;
+            return list.ToList();
+        }
 
-    public void Delete(int id)
-    {
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-MethodBase.GetCurrentMethod().Name, $"START delete customer: Id={id}");
-        var cust = from c in _customers
-                   where c.CustId == id
-                   select c;
-        Customer? customer = cust.FirstOrDefault();
-        if (customer == null)
-            throw new DalIdNotFoundExceptions(messageNotFound);
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-MethodBase.GetCurrentMethod().Name, $"END delete customer id: {id}");
-        _customers?.Remove(customer);
-    }
-    public void Update(Customer customer)
-    {
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-MethodBase.GetCurrentMethod().Name, $"START update customer: Id={customer.CustId}");
-        if (Read(customer.CustId) == null)
-            throw new DalIdNotFoundExceptions(messageNotFound);
-        Delete(customer.CustId);
-        Create(customer);
-        LogManager.WriteToLog(MethodBase.GetCurrentMethod().DeclaringType.FullName,
-MethodBase.GetCurrentMethod().Name, $"END update customer: Id={customer.CustId}, Name={customer.CustName}");
-    }
-
-    public int Create(Customer item)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Customer? Read(Func<Customer, bool> filter)
-    {
-        throw new NotImplementedException();
-    }
-
-    Customer? ICrud<Customer>.Read(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<Customer> ReadAll(Func<Customer, bool>? filter = null)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Update(Customer item)
-    {
-        throw new NotImplementedException();
+        public void Update(Customer item)
+        {
+            customers = ReadCustomersFromFile();
+            int index = customers.FindIndex(c => c.CustId == item.CustId);
+            if (index == -1)
+            {
+                throw new DalIdNotFoundExceptions(messageNotFound);
+            }
+            customers[index] = item;
+            WriteCustomersToFile(customers);
+        }
     }
 }
-*/
