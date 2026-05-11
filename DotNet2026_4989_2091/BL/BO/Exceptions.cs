@@ -29,3 +29,11 @@ public class BlDeletionImpossibleException : Exception
     public BlDeletionImpossibleException(string message, Exception innerException)
                 : base(message, innerException) { }
 }
+
+[Serializable]
+public class BlOutOfStock : Exception
+{
+    public BlOutOfStock(string? message) : base(message) { }
+    public BlOutOfStock(string message, Exception innerException)
+                : base(message, innerException) { }
+}

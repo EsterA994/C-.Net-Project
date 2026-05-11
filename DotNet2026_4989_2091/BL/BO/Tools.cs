@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Reflection;
 using System.Text;
 
@@ -156,6 +155,17 @@ internal static class Tools
             StopDateSale = obj.StopDateSale
 
 
+        };
+    }
+
+    public static BO.SaleInProduct ToSaleInProduct(this DO.Sale obj)
+    {
+        return new BO.SaleInProduct
+        {
+            SaleId = obj.SaleId,
+            AmountForSale = obj.MinRequireQuantity,
+            Price = obj.PriceInSale,
+            JustForClub = obj.JustForClub
         };
     }
 }
