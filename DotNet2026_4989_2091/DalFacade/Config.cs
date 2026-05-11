@@ -1,12 +1,13 @@
-﻿namespace DalApi;
 using System.Xml.Linq;
 
-static class DalConfig
+namespace DalApi;
+
+internal static class Config
 {
     internal static string s_dalName;
     internal static Dictionary<string, string> s_dalPackages;
 
-    static DalConfig()
+    static Config()
     {
         XElement dalConfig = XElement.Load(@"..\xml\dal-config.xml") ??
   throw new DalConfigException("dal-config.xml file is not found");
@@ -25,4 +26,3 @@ public class DalConfigException : Exception
     public DalConfigException(string msg) : base(msg) { }
     public DalConfigException(string msg, Exception ex) : base(msg, ex) { }
 }
-

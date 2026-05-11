@@ -1,7 +1,8 @@
 ﻿
-namespace BL;
+namespace BlApi;
 
-public interface IBl
+
+    public interface IBl
 {
     IProduct Product { get; }
     ISale Sale { get; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using BO;
-using BL;
+using BlApi;
+
 
 namespace BlTest;
 

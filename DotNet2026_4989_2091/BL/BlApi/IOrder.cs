@@ -1,6 +1,6 @@
 ﻿using BO;
 
-namespace BL;
+namespace BlApi;
 
 public interface IOrder
 {

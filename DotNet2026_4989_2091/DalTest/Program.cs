@@ -1,9 +1,10 @@
-﻿using Dal;
+﻿using DalTest;
 using DalApi;
 using DO;
 using System.Reflection;
 using Tools;
 
+namespace Dal;
 public class Program
 {
     private static IDal s_dal = DalApi.Factory.Get;

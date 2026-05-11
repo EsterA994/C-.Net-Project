@@ -1,2 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfProduct></ArrayOfProduct>
+<ArrayOfProduct>
+	<Product>
+		<ProdId>100001</ProdId>
+		<ProdName>משחק הזיכרון - גדולי ישראל</ProdName>
+		<ProdCategory>משחקי_קופסה</ProdCategory>
+		<Price>45.90</Price>
+		<QuantityInStock>25</QuantityInStock>
+	</Product>
+	<Product>
+		<ProdId>100002</ProdId>
+		<ProdName>פאזל 1000 חלקים - ירושלים שבין החומות</ProdName>
+		<ProdCategory>פאזלים</ProdCategory>
+		<Price>89.00</Price>
+		<QuantityInStock>12</QuantityInStock>
+	</Product>
+	<Product>
+		<ProdId>100003</ProdId>
+		<ProdName>ערכת יצירה - הכנת חנוכייה מאלומיניום</ProdName>
+		<ProdCategory>יצירה</ProdCategory>
+		<Price>35.00</Price>
+		<QuantityInStock>50</QuantityInStock>
+	</Product>
+	<Product>
+		<ProdId>100004</ProdId>
+		<ProdName>משחק מסלול - "בדרכי אבות"</ProdName>
+		<ProdCategory>משחקי_קופסה</ProdCategory>
+		<Price>65.50</Price>
+		<QuantityInStock>8</QuantityInStock>
+	</Product>
+	<Product>
+		<ProdId>100005</ProdId>
+		<ProdName>ספר צביעה - סיפורי צדיקים</ProdName>
+		<ProdCategory>ספרים_ויצירה</ProdCategory>
+		<Price>15.00</Price>
+		<QuantityInStock>100</QuantityInStock>
+	</Product>
+</ArrayOfProduct>

@@ -1,7 +1,6 @@
 ﻿using BO;
 
-namespace BL;
-
+namespace BlApi;
 public interface IProduct
 {    public int Create(Product item);
     public Product? Read(Func<Product, bool> filter);
