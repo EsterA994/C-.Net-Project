@@ -28,12 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            SellerButton = new Button();
+            ManagerButton = new Button();
+            HomeTitle = new Label();
+            SuspendLayout();
+            // 
+            // SellerButton
+            // 
+            SellerButton.Location = new Point(165, 176);
+            SellerButton.Name = "SellerButton";
+            SellerButton.Size = new Size(201, 130);
+            SellerButton.TabIndex = 0;
+            SellerButton.Text = "קופאי";
+            SellerButton.UseVisualStyleBackColor = true;
+            SellerButton.Click += SellerButton_Click;
+            // 
+            // ManagerButton
+            // 
+            ManagerButton.Location = new Point(394, 176);
+            ManagerButton.Name = "ManagerButton";
+            ManagerButton.Size = new Size(201, 130);
+            ManagerButton.TabIndex = 0;
+            ManagerButton.Text = "מנהל";
+            ManagerButton.UseVisualStyleBackColor = true;
+            ManagerButton.Click += ManagerButton_Click;
+            // 
+            // HomeTitle
+            // 
+            HomeTitle.AutoSize = true;
+            HomeTitle.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            HomeTitle.Location = new Point(263, 101);
+            HomeTitle.Name = "HomeTitle";
+            HomeTitle.Size = new Size(222, 41);
+            HomeTitle.TabIndex = 1;
+            HomeTitle.Text = "חנות המשחקים";
+            // 
+            // Home
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(HomeTitle);
+            Controls.Add(ManagerButton);
+            Controls.Add(SellerButton);
+            Name = "Home";
+            Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button SellerButton;
+        private Button ManagerButton;
+        private Label HomeTitle;
     }
 }
