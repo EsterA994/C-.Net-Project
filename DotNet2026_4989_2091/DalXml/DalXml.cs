@@ -2,7 +2,7 @@
 
 namespace Dal;
 
-internal sealed class DalXml : IDal
+public sealed class DalXml : IDal
 {
     private DalXml instance = new DalXml();
 

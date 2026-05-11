@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 using DO;
 namespace BL
 {
-    internal class CustomerIImplementationation : ICustomer
+    internal class CustomerImplementation: ICustomer
     {
 
-        private DalApi.IDal _dal = DalApi.Factory.Get;
-
+        private readonly DalApi.IDal _dal = DalApi.Factory.Get;
         public int Create(BO.Customer item)
         {
             // 1. שלב הוולידציה (מחוץ ל-try)

@@ -10,5 +10,5 @@ public class Sale
     public DateTime? StartDateSale { get; set; }
     public DateTime? StopDateSale { get; set; }
 
-    //public override string ToString() => this.ToStringProperty();
+    public override string ToString() => this.ToStringProperty();
 }

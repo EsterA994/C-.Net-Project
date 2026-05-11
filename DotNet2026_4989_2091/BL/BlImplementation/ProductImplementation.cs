@@ -1,12 +1,7 @@
 ﻿
 using BO;
-using DalApi;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
+using static BO.Tools;
 namespace BL
 {
     //לבדוק שוב את כל הפונקציות לבדוק מה נכון בין קשר של טיפוסים כמו SALE עם פרודקט או מה עם פונקצית UPDATE צריך להתייחס אליה? ובנוסף לבדוק את כל הקשרים גם עם CUSTOMER וכולי
@@ -36,72 +31,112 @@ namespace BL
             }
         }
 
-
-
         public void Delete(int id)
         {
-            // --- Basic Validation ---
+            // 1. Validation: Ensure the ID is a valid positive number
             if (id <= 0)
-                throw new BO.BlInvalidInputException("Invalid product ID. ID must be a positive number.");
+                throw new BO.BlInvalidInputException("Invalid ID. Product ID must be a positive number.");
 
+            // 2. Check if the product exists in the DAL
             try
             {
-                // --- Business Logic: Check Orders using LINQ Query Syntax ---
-                var allOrderItems = _dal.OrderItem.ReadAll();
-                var productInOrders = from oi in allOrderItems
-                                      where oi.ProdId == id
-                                      select oi;
+                _dal.Product.Read(id);
+            }
+            catch (DO.DalIdNotFoundExceptions ex)
+            {
+                throw new BO.BlDoesNotExistException($"Product with ID {id} was not found.", ex);
+            }
 
-                if (productInOrders.Any())
-                {
-                    throw new BO.BlDeletionImpossibleException($"Cannot delete product {id} because it is linked to existing orders.");
-                }
+            // 4. Cascade Delete: Remove all associated sales first
+            // We fetch all sales belonging to this product and delete them one by one
+            var productSales = _dal.Sale.ReadAll(s => s.ProdId == id);
+            productSales.ToList().ForEach(s => _dal.Sale.Delete(s.SaleId));
 
-                // --- Business Logic: Check Active Sales using LINQ Query Syntax ---
-                DateTime now = DateTime.Now;
-                var allSales = _dal.Sale.ReadAll();
-                var activeSales = from s in allSales
-                                  where s.ProdId == id
-                                  where s.StartDateSale <= now
-                                  where (s.StopDateSale == null || s.StopDateSale >= now)
-                                  select s;
-
-                if (activeSales.Any())
-                {
-                    throw new BlDeletionImpossibleException($"Cannot delete product {id} because there is an active sale currently running.");
-                }
-
-                // --- Execution ---
+            // 5. Final Step: Delete the product itself
+            try
+            {
                 _dal.Product.Delete(id);
             }
             catch (DO.DalIdNotFoundExceptions ex)
             {
-                throw new BO.BlDoesNotExistException($"Product with ID {id} was not found in the database.", ex);
+                throw new BO.BlDoesNotExistException($"Product {id} could not be deleted because it disappeared from the system.", ex);
             }
         }
 
-        public void GetSales(ProductInOrder productInOrder, bool isClubMember)
-        {
-            throw new NotImplementedException();
-        }
 
+public void GetSales(BO.ProductInOrder productInOrder, bool isClubMember)
+{
+    // 1. ניקוי הרשימה הקיימת כדי שלא יצטברו מבצעים כפולים בקריאות חוזרות
+    productInOrder.Sales = new List<BO.SaleInProduct>();
+
+    // 2. שאילתת LINQ שמחפשת את המבצעים המתאימים
+    var salesQuery = from sale in _dal.Sale.ReadAll()
+                     // תנאי א: המבצע שייך למוצר המבוקש
+                     where sale.ProdId == productInOrder.ProdId
+                     // תנאי ב: המבצע בתוקף (התאריך של היום בין תאריך התחלה לסיום)
+                     where DateTime.Now >= sale.StartDateSale && DateTime.Now <= sale.StopDateSale
+                     // תנאי ג: הכמות בהזמנה הגיעה למינימום הנדרש במבצע
+                     where productInOrder.ProdAmount >= sale.MinRequireQuantity
+                     // תנאי ד: אם הלקוח לא חבר מועדון, המבצע חייב להיות פתוח לכולם
+                     where isClubMember || !sale.JustForClub
+
+                     // מיון לפי כדאיות: מחיר המבצע הנמוך ביותר קודם
+                     orderby sale.PriceInSale
+                     
+                     // המרה ל-BO
+                     select new BO.SaleInProduct
+                     {
+                         SaleId = sale.SaleId,
+                         AmountForSale = sale.MinRequireQuantity,
+                         Price = sale.PriceInSale,
+                         JustForClub = sale.JustForClub
+                     };
+
+    productInOrder.Sales = salesQuery.ToList();
+}
+        //public BO.Product? Read(Func<BO.Product, bool> filter)
+        //{
+        //    try
+        //    {
+
+        //        DO.Product? doProduct = _dal.Product.Read(doItem => filter?.Invoke(doItem.ToBO()) ?? true);
+
+        //        return doProduct?.ToBO();
+        //    }
+        //    catch (DO.DalIdNotFoundExceptions ex)
+        //    {
+        //        throw new BO.BlDoesNotExistException("No product was found that matches the specified condition.", ex);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // תפיסת שגיאות כלליות אחרות ועטיפתן בחריגת BL
+        //        throw new BO.BlDoesNotExistException("An error occurred while searching for the product.", ex);
+        //    }
+        //}
         public BO.Product? Read(Func<BO.Product, bool> filter)
         {
             try
             {
-                
-                DO.Product? doProduct = _dal.Product.Read(doItem => filter?.Invoke(doItem.ToBO()) ?? true);
+                // 1. שליפה מה-DAL (המרת DO ל-BO לצורך בדיקת התנאי)
+                DO.Product doProduct = _dal.Product.Read(doItem => filter(doItem.ToBO()));
+                BO.Product boProduct = doProduct.ToBO();
 
-                return doProduct?.ToBO();
+                // 2. הוספת המבצעים המסודרים (בדיוק כמו ב-Read לפי ID)
+                boProduct.Sales = (from sale in _dal.Sale.ReadAll(s => s.ProdId == boProduct.ProdId)
+                                   orderby sale.PriceInSale
+                                   select new BO.SaleInProduct
+                                   {
+                                       SaleId = sale.SaleId,
+                                       AmountForSale = sale.MinRequireQuantity,
+                                       Price = sale.PriceInSale,
+                                       JustForClub = sale.JustForClub
+                                   }).ToList();
+
+                return boProduct;
             }
-            catch (DO.DalIdNotFoundExceptions ex)
+            catch (DO.DalIdNotFoundExceptions)
             {
-                throw new BO.BlDoesNotExistException("No product was found that matches the specified condition.", ex);
-            }
-            catch (Exception ex)
-            {
-                // תפיסת שגיאות כלליות אחרות ועטיפתן בחריגת BL
-                throw new BO.BlDoesNotExistException("An error occurred while searching for the product.", ex);
+                return null;
             }
         }
         public BO.Product? Read(int id)
@@ -111,72 +146,157 @@ namespace BL
 
             try
             {
-                // שליפה מה-DAL והמרה ל-BO באמצעות ה-Tools
+                // 1. שליפה מה-DAL
                 DO.Product doProduct = _dal.Product.Read(id);
-                return doProduct?.ToBO();
+
+                // 2. המרה ל-BO (הנתונים הבסיסיים)
+                BO.Product boProduct = doProduct.ToBO();
+
+                // 3. "נירמול" - השלמת רשימת המבצעים ששייכים למוצר הזה
+                boProduct.Sales = (from sale in _dal.Sale.ReadAll(s => s.ProdId == id)
+                                   select new BO.SaleInProduct
+                                   {
+                                       SaleId = sale.SaleId,
+                                       AmountForSale = sale.MinRequireQuantity,
+                                       Price = sale.PriceInSale,
+                                       JustForClub = sale.JustForClub
+                                   }).ToList();
+
+                return boProduct;
             }
             catch (DO.DalIdNotFoundExceptions ex)
             {
-                // עטיפת החריגה כחריגת BO
                 throw new BO.BlDoesNotExistException($"מוצר עם מזהה {id} לא נמצא במערכת.", ex);
             }
         }
 
+
+        //public List<BO.Product> ReadAll(Func<BO.Product, bool>? filter = null)
+        //{
+        //    try
+        //    {
+        //        return (from DO.Product doProd in _dal.Product.ReadAll()
+        //                let boProd = doProd.ToBO() // שימוש ב-let להמרה חד-פעמית ל-BO בעזרת ה-Tools
+        //                where filter == null || filter(boProd) // בדיקה אם הפילטר ריק או שהאובייקט עונה לתנאי
+        //                select boProd).ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // עטיפת כל חריגה מה-DAL בחריגת BO מתאימה עם החרגה פנימית (InnerException)
+        //        throw new BO.BlDoesNotExistException("Failed to retrieve products list from the system.", ex);
+        //    }
+        //}
         public List<BO.Product> ReadAll(Func<BO.Product, bool>? filter = null)
         {
             try
             {
-                return (from DO.Product doProd in _dal.Product.ReadAll()
-                        let boProd = doProd.ToBO() // שימוש ב-let להמרה חד-פעמית ל-BO בעזרת ה-Tools
-                        where filter == null || filter(boProd) // בדיקה אם הפילטר ריק או שהאובייקט עונה לתנאי
-                        select boProd).ToList();
+                // 1. שליפת כל המוצרים והפיכתם ל-BO
+                var products = _dal.Product.ReadAll()
+                    .Select(doProd => doProd.ToBO())
+                    .Where(boProd => filter == null || filter(boProd))
+                    .ToList();
+
+                // 2. לכל מוצר ברשימה - מוסיפים את המבצעים שלו מה-DAL
+                products.ForEach(boProd =>
+                {
+                    boProd.Sales = (from sale in _dal.Sale.ReadAll(s => s.ProdId == boProd.ProdId)
+                                    orderby sale.PriceInSale
+                                    select new BO.SaleInProduct
+                                    {
+                                        SaleId = sale.SaleId,
+                                        AmountForSale = sale.MinRequireQuantity,
+                                        Price = sale.PriceInSale,
+                                        JustForClub = sale.JustForClub
+                                    }).ToList();
+                });
+
+                return products;
             }
             catch (Exception ex)
             {
-                // עטיפת כל חריגה מה-DAL בחריגת BO מתאימה עם החרגה פנימית (InnerException)
-                throw new BO.BlDoesNotExistException("Failed to retrieve products list from the system.", ex);
+                throw new BO.BlDoesNotExistException("Failed to retrieve products list.", ex);
             }
         }
-        public void Update(BO.Product item)
+        public void Update(BO.Product product)
         {
-
-            ValidateProduct(item);
+          
+            ValidateProduct(product);
 
             try
             {
-                DO.Product doProduct = item.ToDO();
+                _dal.Product.Read(product.ProdId);
+            }
+            catch (DO.DalIdNotFoundExceptions ex)
+            {
+                throw new BO.BlDoesNotExistException($"Update failed: Product with ID {product.ProdId} does not exist in the system.", ex);
+            }
 
-                // 3. פנייה ל-DAL לביצוע העדכון
+            // 3. Data Transformation & DAL Update
+            // We convert our Business Object (BO) to a Data Object (DO) using our Tools.
+            try
+            {
+                DO.Product doProduct = product.ToDO();
                 _dal.Product.Update(doProduct);
             }
-            catch (DO.DalIdNotFoundExceptions ex) 
+            catch (DO.DalIdNotFoundExceptions ex)
             {
-               
-                throw new BO.BlDoesNotExistException($"Product with ID {item.ProdId} does not exist and cannot be updated.", ex);
+                // This is a safety net in case the product was deleted by another process 
+                // between our Read and Update calls.
+                throw new BO.BlDoesNotExistException($"Update failed: Product {product.ProdId} was removed during the process.", ex);
             }
         }
 
-        private void ValidateProduct(BO.Product item)
+
+
+        private void ValidateProduct(BO.Product product)
         {
-            // בדיקה שהאובייקט אינו null
-            if (item == null)
-                throw new BO.BlInvalidInputException("Product data is missing.");
+            // --- 1. Basic Product Integrity ---
+            if (product == null)
+                throw new BO.BlInvalidInputException("Product object cannot be null.");
 
-            // בדיקת מזהה (חייב להיות חיובי)
-            if (item.ProdId <= 0)
-                throw new BO.BlInvalidInputException("Product ID must be a positive number.");
+            if (product.ProdId <= 0)
+                throw new BO.BlInvalidInputException("Product ID must be a positive non-zero number.");
 
-            // בדיקת שם מוצר - לא יכול להיות ריק או רק רווחים
-            if (string.IsNullOrWhiteSpace(item.ProdName))
-                throw new BO.BlInvalidInputException("Product name cannot be empty.");
+            if (string.IsNullOrWhiteSpace(product.ProdName))
+                throw new BO.BlInvalidInputException("Product name is required and cannot be empty.");
 
-            // בדיקת מחיר - מחיר חייב להיות חיובי
-            if (item.Price <= 0)
-                throw new BO.BlInvalidInputException("Product price must be greater than zero.");
+            if (product.Price <= 0)
+                throw new BO.BlInvalidInputException("Product price must be a positive value.");
 
-            // בדיקת מלאי - כמות במלאי לא יכולה להיות שלילית
-            if (item.QuantityInStock < 0)
-                throw new BO.BlInvalidInputException("Quantity in stock cannot be negative.");
+            if (product.QuantityInStock < 0)
+                throw new BO.BlInvalidInputException("Stock quantity cannot be a negative value.");
+
+            // --- 2. Sales Validation using LINQ ---
+            if (product.Sales != null && product.Sales.Any())
+            {
+                // A. Verify that all SaleIds exist in the DAL
+                // Using ToList().ForEach to allow throwing specific exceptions during iteration
+                product.Sales.ToList().ForEach(sale =>
+                {
+                    try
+                    {
+                        // Validate existence of the SaleId in the Project's DAL
+                        var dalSale = _dal.Sale.Read(sale.SaleId);
+
+                        // B. Data Consistency: Ensure the Sale in DAL actually belongs to this Product
+                        if (dalSale.ProdId != product.ProdId)
+                            throw new BO.BlInvalidInputException($"Inconsistency: Sale ID {sale.SaleId} belongs to Product {dalSale.ProdId}, not {product.ProdId}.");
+                    }
+                    catch (DO.DalIdNotFoundExceptions ex)
+                    {
+                        // Thrown if SaleId does not exist in the project
+                        throw new BO.BlDoesNotExistException($"The Sale ID {sale.SaleId} provided in the product's sales list does not exist in the system.", ex);
+                    }
+                });
+
+                // C. Numerical Validation for Sales
+                if (product.Sales.Any(s => s.AmountForSale <= 0 || s.Price <= 0))
+                    throw new BO.BlInvalidInputException("Sale price and minimum quantity must be positive values.");
+
+                // D. Business Rule: Sale price must be lower than original price
+                if (product.Sales.Any(s => s.Price >= product.Price))
+                    throw new BO.BlInvalidInputException("Business Logic Violation: Sale price must be lower than the original product price.");
+            }
         }
     }
 }

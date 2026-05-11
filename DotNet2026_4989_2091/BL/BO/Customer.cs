@@ -7,5 +7,5 @@ public class Customer
     public string CustAddress { get; set; }
     public string CustPhone { get; set; }
 
-    //public override string ToString() => this.ToStringProperty();
+    public override string ToString() => this.ToStringProperty();
 }

@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class SaleImplementationation : ISale
+    internal class SaleImplementation : ISale
     {
+        private readonly DalApi.IDal _dal = DalApi.Factory.Get;
+
         public int Create(Sale item)
         {
             // 1. שלב הוולידציה (מחוץ ל-try) - בדיקה עסקית לפני פנייה לנתונים
