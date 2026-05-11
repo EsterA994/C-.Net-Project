@@ -7,6 +7,7 @@ namespace Dal;
 internal class CustomerImplementation : ICustomer
 {
     string customerExlPath = @"../xml/customers.xml";
+
     private readonly XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Customer>));
     static List<Customer> customers;
     private const string messageNotFound = "customer id is not found";

@@ -60,6 +60,7 @@
             Controls.Add(helloSellerLbl);
             Name = "SellerForm";
             Text = "SellerForm";
+            Load += SellerForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

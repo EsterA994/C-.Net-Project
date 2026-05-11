@@ -53,6 +53,7 @@
             inputName.Size = new Size(206, 27);
             inputName.TabIndex = 1;
             inputName.Text = "שם לקוח";
+            inputName.TextChanged += inputName_TextChanged;
             // 
             // inputId
             // 
@@ -112,6 +113,7 @@
             Controls.Add(loginTitle);
             Name = "loginCustForm";
             Text = "loginCustForm";
+            Load += loginCustForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

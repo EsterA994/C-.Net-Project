@@ -21,5 +21,10 @@ namespace UI
         {
 
         }
+
+        private void SellerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
