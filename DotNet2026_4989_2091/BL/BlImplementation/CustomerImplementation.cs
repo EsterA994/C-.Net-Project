@@ -13,6 +13,7 @@ namespace BL
         private readonly DalApi.IDal _dal = DalApi.Factory.Get;
         public int Create(BO.Customer item)
         {
+            Console.WriteLine(item);
             // 1. שלב הוולידציה (מחוץ ל-try)
             ValidateCustomer(item);
 
