@@ -1,20 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
 
-namespace UI
+namespace UI;
+
+public partial class ManagerForm : Form
 {
-    public partial class ManagerForm : Form
+    public ManagerForm()
     {
-        public ManagerForm()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        // subscribe to button events
+        this.SalesBTN.Click += SalesBTN_Click;
+        this.ProductsBTN.Click += ProductsBTN_Click;
+        this.CustomersBTN.Click += CustomersBTN_Click;
+    }
+
+    private void ManagerForm_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void SalesBTN_Click(object sender, EventArgs e)
+    {
+        var salesForm = new SalesForm();
+        salesForm.ShowDialog();
+    }
+
+    private void ProductsBTN_Click(object sender, EventArgs e)
+    {
+        var productsForm = new ProductsForm();
+        productsForm.ShowDialog();
+    }
+
+    private void CustomersBTN_Click(object sender, EventArgs e)
+    {
+        var customersForm = new CustomersForm();
+        customersForm.ShowDialog();
     }
 }

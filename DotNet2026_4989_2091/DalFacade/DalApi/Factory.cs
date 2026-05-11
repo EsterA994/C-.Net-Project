@@ -17,8 +17,26 @@ public static class Factory
             Type type = Type.GetType($"Dal.{dal}, {dal}") ??
                 throw new DalConfigException($"Class Dal.{dal} was not found in {dal}.dll");
 
-            return type.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null) as IDal ??
-                throw new DalConfigException($"Class {dal} is not a singleton or wrong property name for Instance");
+            // First try to get a public static Instance property (singleton pattern)
+            var prop = type.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
+            if (prop != null)
+            {
+                return prop.GetValue(null) as IDal ??
+                    throw new DalConfigException($"Class {dal} 'Instance' property did not return IDal");
+            }
+
+            // Otherwise try to create an instance using a public parameterless ctor
+            try
+            {
+                var inst = Activator.CreateInstance(type) as IDal;
+                if (inst != null) return inst;
+            }
+            catch (Exception ex)
+            {
+                throw new DalConfigException($"Failed to create an instance of {dal}", ex);
+            }
+
+            throw new DalConfigException($"Class {dal} is not a singleton and could not be instantiated as IDal");
         }
     }
 }
