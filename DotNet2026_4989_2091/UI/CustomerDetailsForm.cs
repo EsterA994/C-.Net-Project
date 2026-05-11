@@ -89,5 +89,15 @@ namespace UI
         }
 
         private void CustomerDetailsForm_Load(object sender, EventArgs e) { }
+
+        private void IsClubCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CustomerDetailsForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

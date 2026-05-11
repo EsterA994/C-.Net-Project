@@ -45,4 +45,9 @@ public partial class ProductsForm : Form
     {
 
     }
+
+    private void ProductsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
+    }
 }

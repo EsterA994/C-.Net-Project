@@ -92,6 +92,7 @@ partial class ProductsForm
         ProductsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         ProductsGrid.Size = new Size(760, 220);
         ProductsGrid.TabIndex = 3;
+        ProductsGrid.CellContentClick += ProductsGrid_CellContentClick;
         ProductsGrid.SelectionChanged += ProductsGrid_SelectionChanged;
         // 
         // AddProductBTN
@@ -245,7 +246,6 @@ partial class ProductsForm
         ((System.ComponentModel.ISupportInitialize)ProductsGrid).EndInit();
         ResumeLayout(false);
         PerformLayout();
-
     }
 
     #endregion

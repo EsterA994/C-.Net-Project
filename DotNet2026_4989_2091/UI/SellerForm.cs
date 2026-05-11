@@ -15,5 +15,10 @@ namespace UI
             // פתיחת המסך הבא שבו מזינים פרטי לקוח
             new CustomerDetailsForm().ShowDialog();
         }
+
+        private void SellerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

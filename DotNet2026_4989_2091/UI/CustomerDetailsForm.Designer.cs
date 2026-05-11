@@ -20,54 +20,92 @@
 
         private void InitializeComponent()
         {
-            this.InputId = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.InputPhone = new System.Windows.Forms.TextBox();
-            this.InputAddress = new System.Windows.Forms.TextBox();
-            this.IsClubCheckBox = new System.Windows.Forms.CheckBox();
-            this.StartOrderBTN = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-
-            // Label ID
-            this.label1.Text = "תעודת זהות:";
-            this.label1.Location = new System.Drawing.Point(50, 50);
-
+            InputId = new TextBox();
+            textBox1 = new TextBox();
+            InputPhone = new TextBox();
+            InputAddress = new TextBox();
+            IsClubCheckBox = new CheckBox();
+            StartOrderBTN = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            SuspendLayout();
+            // 
             // InputId
-            this.InputId.Location = new System.Drawing.Point(150, 50);
-            this.InputId.Name = "InputId";
-
-            // Label Name
-            this.label2.Text = "שם מלא:";
-            this.label2.Location = new System.Drawing.Point(50, 90);
-
-            // textBox1 (Name)
-            this.textBox1.Location = new System.Drawing.Point(150, 90);
-            this.textBox1.Name = "textBox1";
-
+            // 
+            InputId.Location = new Point(150, 50);
+            InputId.Name = "InputId";
+            InputId.Size = new Size(100, 27);
+            InputId.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(150, 90);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 27);
+            textBox1.TabIndex = 1;
+            // 
+            // InputPhone
+            // 
+            InputPhone.Location = new Point(0, 0);
+            InputPhone.Name = "InputPhone";
+            InputPhone.Size = new Size(100, 27);
+            InputPhone.TabIndex = 0;
+            // 
+            // InputAddress
+            // 
+            InputAddress.Location = new Point(0, 0);
+            InputAddress.Name = "InputAddress";
+            InputAddress.Size = new Size(100, 27);
+            InputAddress.TabIndex = 0;
+            // 
             // IsClubCheckBox
-            this.IsClubCheckBox.Text = "חבר מועדון?";
-            this.IsClubCheckBox.Location = new System.Drawing.Point(150, 220);
-
+            // 
+            IsClubCheckBox.Location = new Point(150, 220);
+            IsClubCheckBox.Name = "IsClubCheckBox";
+            IsClubCheckBox.Size = new Size(104, 24);
+            IsClubCheckBox.TabIndex = 2;
+            IsClubCheckBox.Text = "חבר מועדון?";
+            IsClubCheckBox.CheckedChanged += IsClubCheckBox_CheckedChanged;
+            // 
             // StartOrderBTN
-            this.StartOrderBTN.Text = "המשך לבחירת מוצרים";
-            this.StartOrderBTN.Location = new System.Drawing.Point(150, 270);
-            this.StartOrderBTN.Size = new System.Drawing.Size(150, 40);
-            this.StartOrderBTN.Click += new System.EventHandler(this.StartOrderBTN_Click);
-
-            // Form Layout
-            this.ClientSize = new System.Drawing.Size(450, 400);
-            this.Controls.Add(this.InputId);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.IsClubCheckBox);
-            this.Controls.Add(this.StartOrderBTN);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Name = "CustomerDetailsForm";
-            this.Text = "פרטי לקוח";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            StartOrderBTN.Location = new Point(150, 270);
+            StartOrderBTN.Name = "StartOrderBTN";
+            StartOrderBTN.Size = new Size(150, 40);
+            StartOrderBTN.TabIndex = 3;
+            StartOrderBTN.Text = "המשך לבחירת מוצרים";
+            StartOrderBTN.Click += StartOrderBTN_Click;
+            // 
+            // label1
+            // 
+            label1.Location = new Point(50, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(100, 23);
+            label1.TabIndex = 4;
+            label1.Text = "תעודת זהות:";
+            // 
+            // label2
+            // 
+            label2.Location = new Point(50, 90);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 23);
+            label2.TabIndex = 5;
+            label2.Text = "שם מלא:";
+            // 
+            // CustomerDetailsForm
+            // 
+            ClientSize = new Size(450, 400);
+            Controls.Add(InputId);
+            Controls.Add(textBox1);
+            Controls.Add(IsClubCheckBox);
+            Controls.Add(StartOrderBTN);
+            Controls.Add(label1);
+            Controls.Add(label2);
+            Name = "CustomerDetailsForm";
+            Text = "פרטי לקוח";
+            Load += CustomerDetailsForm_Load_1;
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

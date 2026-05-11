@@ -33,6 +33,7 @@
             this.NewOrderBTN.Click += new System.EventHandler(this.NewOrderBTN_Click);
 
             // SellerForm
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SellerTitle);
             this.Controls.Add(this.NewOrderBTN);
@@ -40,6 +41,19 @@
             this.Text = "Seller Terminal";
             this.ResumeLayout(false);
             this.PerformLayout();
+=======
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(newOrderBTN);
+            Controls.Add(helloSellerLbl);
+            Name = "SellerForm";
+            Text = "SellerForm";
+            Load += SellerForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
+>>>>>>> 092103a90b1deced549d11ca085473ae91e9fd50
         }
     }
 }
