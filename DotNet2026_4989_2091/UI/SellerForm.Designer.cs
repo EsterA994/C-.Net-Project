@@ -29,22 +29,34 @@
         private void InitializeComponent()
         {
             helloSellerLbl = new Label();
+            newOrderBTN = new Button();
             SuspendLayout();
             // 
             // helloSellerLbl
             // 
             helloSellerLbl.AutoSize = true;
-            helloSellerLbl.Location = new Point(327, 112);
+            helloSellerLbl.Location = new Point(357, 132);
             helloSellerLbl.Name = "helloSellerLbl";
             helloSellerLbl.Size = new Size(84, 20);
             helloSellerLbl.TabIndex = 0;
             helloSellerLbl.Text = "שלום קופאי";
+            // 
+            // newOrderBTN
+            // 
+            newOrderBTN.Location = new Point(326, 193);
+            newOrderBTN.Name = "newOrderBTN";
+            newOrderBTN.Size = new Size(143, 79);
+            newOrderBTN.TabIndex = 1;
+            newOrderBTN.Text = "הזמנה חדשה";
+            newOrderBTN.UseVisualStyleBackColor = true;
+            newOrderBTN.Click += newOrderBTN_Click;
             // 
             // SellerForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(newOrderBTN);
             Controls.Add(helloSellerLbl);
             Name = "SellerForm";
             Text = "SellerForm";
@@ -55,5 +67,6 @@
         #endregion
 
         private Label helloSellerLbl;
+        private Button newOrderBTN;
     }
 }
