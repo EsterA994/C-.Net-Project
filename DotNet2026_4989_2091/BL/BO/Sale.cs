@@ -9,6 +9,5 @@ public class Sale
     public bool JustForClub { get; set; }
     public DateTime? StartDateSale { get; set; }
     public DateTime? StopDateSale { get; set; }
-
-    //public override string ToString() => this.ToStringProperty();
+    public override string ToString() => this.ToStringProperty();
 }
