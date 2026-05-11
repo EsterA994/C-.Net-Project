@@ -255,8 +255,7 @@ internal class ProductImplementation : IProduct
         if (product == null)
             throw new BO.BlInvalidInputException("Product object cannot be null.");
 
-        if (product.ProdId <= 0)
-            throw new BO.BlInvalidInputException("Product ID must be a positive non-zero number.");
+
 
         if (string.IsNullOrWhiteSpace(product.ProdName))
             throw new BO.BlInvalidInputException("Product name is required and cannot be empty.");

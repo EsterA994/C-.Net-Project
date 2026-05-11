@@ -49,6 +49,7 @@ internal class Program
         int choice = ReadInt("Choice: ");
 
         try
+        
         {
             switch (choice)
             {
