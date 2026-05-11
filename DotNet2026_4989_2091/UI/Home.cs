@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace UI
 {
     public partial class Home : Form
@@ -9,8 +12,8 @@ namespace UI
 
         private void ManagerButton_Click(object sender, EventArgs e)
         {
-            ManagerForm managerForm = new ManagerForm();
-            managerForm.ShowDialog();
+            var mgr = new ManagerForm();
+            mgr.ShowDialog();
         }
 
         private void SellerButton_Click(object sender, EventArgs e)
