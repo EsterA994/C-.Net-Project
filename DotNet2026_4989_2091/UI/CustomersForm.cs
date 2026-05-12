@@ -1,4 +1,5 @@
 using BL;
+using BlApi;
 using System;
 using System.Windows.Forms;
 
@@ -6,7 +7,7 @@ namespace UI;
 
 public partial class CustomersForm : Form
 {
-    private readonly IBl _bl = BL.Factory.Get();
+    static readonly IBl s_bl = Factory.Get;
     public CustomersForm()
     {
         InitializeComponent();
@@ -16,7 +17,7 @@ public partial class CustomersForm : Form
     {
         try
         {
-            var data = _bl.Customer.ReadAll()?.ToList();
+            var data = s_bl.Customer.ReadAll()?.ToList();
 
             if (data != null)
             {
@@ -78,7 +79,7 @@ public partial class CustomersForm : Form
             string searchText = SearchTextBox.Text.Trim().ToLower();
 
             // 2. פנייה ל-BL לקבלת הרשימה העדכנית ביותר
-            var allCustomers = _bl.Customer.ReadAll();
+            var allCustomers = s_bl.Customer.ReadAll();
 
             if (allCustomers == null)
             {
@@ -138,7 +139,7 @@ public partial class CustomersForm : Form
             };
 
             // 2. קריאה ל-BL כדי להוסיף את הלקוח לבסיס הנתונים
-            int id = _bl.Customer.Create(newCustomer);
+            int id = s_bl.Customer.Create(newCustomer);
             if (id == 0)
                 throw new Exception("הלקוח כבר קיים או שהנתונים לא תקינים");
 
@@ -146,7 +147,7 @@ public partial class CustomersForm : Form
             MessageBox.Show("הלקוח נוסף בהצלחה!", "אישור", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // רענון הגריד (קריאה לפונקציית ה-Load או שליפה מחדש)
-            CustomersGrid.DataSource = _bl.Customer.ReadAll().ToList();
+            CustomersGrid.DataSource = s_bl.Customer.ReadAll().ToList();
 
             // אופציונלי: ניקוי התיבות לאחר ההוספה
             txtCustId.Clear();
@@ -175,13 +176,13 @@ public partial class CustomersForm : Form
             };
 
             // 2. קריאה ל-BL לביצוע העדכון
-            _bl.Customer.Update(customerToUpdate);
+            s_bl.Customer.Update(customerToUpdate);
 
             // 3. הודעת הצלחה ורענון הטבלה כדי לראות את השינויים
             MessageBox.Show("פרטי הלקוח עודכנו בהצלחה!", "עדכון", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // רענון הגריד
-            CustomersGrid.DataSource = _bl.Customer.ReadAll().ToList();
+            CustomersGrid.DataSource = s_bl.Customer.ReadAll().ToList();
         }
         catch (Exception ex)
         {
@@ -212,12 +213,12 @@ public partial class CustomersForm : Form
             // 3. אם המשתמש לחץ "כן" - מבצעים את המחיקה
             if (result == DialogResult.Yes)
             {
-                _bl.Customer.Delete(customerId);
+                s_bl.Customer.Delete(customerId);
 
                 MessageBox.Show("הלקוח נמחק בהצלחה", "מחיקה", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // 4. רענון הטבלה וניקוי התיבות
-                CustomersGrid.DataSource = _bl.Customer.ReadAll().ToList();
+                CustomersGrid.DataSource = s_bl.Customer.ReadAll().ToList();
 
                 txtCustId.Clear();
                 txtCustName.Clear();
@@ -277,7 +278,7 @@ public partial class CustomersForm : Form
         try
         {
             string searchText = SearchTextBox.Text.Trim().ToLower();
-            var allCustomers = _bl.Customer.ReadAll();
+            var allCustomers = s_bl.Customer.ReadAll();
 
             if (allCustomers == null) return;
 
@@ -352,7 +353,7 @@ public partial class CustomersForm : Form
             // אנחנו בודקים אם אנחנו במצב "הוספה" (כלומר התיבה לא לקריאה בלבד)
             if (!txtCustId.ReadOnly)
             {
-                var allCustomers = _bl.Customer.ReadAll();
+                var allCustomers = s_bl.Customer.ReadAll();
                 bool exists = allCustomers.Any(c => c.CustId == id);
 
                 if (exists)
@@ -373,7 +374,7 @@ public partial class CustomersForm : Form
             string searchText = SearchTextBox.Text.Trim().ToLower();
 
             // 2. פנייה ל-BL לקבלת כל הלקוחות
-            var allCustomers = _bl.Customer.ReadAll();
+            var allCustomers = s_bl.Customer.ReadAll();
 
             if (allCustomers == null) return;
 
