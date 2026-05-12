@@ -4,17 +4,11 @@ namespace Dal;
 
 public sealed class DalXml : IDal
 {
-    private DalXml instance = new DalXml();
+    public static DalApi.IDal Instance { get; } = new DalXml();
 
-    public DalXml Instance
-    {
-        get { return instance = new DalXml(); }
-    }    
+    // 2. בנאי פרטי כדי למנוע יצירת מופעים מבחוץ
+    private DalXml() { }
 
-    private DalXml()
-    {
-        instance = new DalXml();
-    }
 
     public IProduct Product => new ProductImplementation();
     public ISale Sale => new SaleImplementation();

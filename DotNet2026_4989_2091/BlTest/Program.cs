@@ -8,7 +8,7 @@ namespace BlTest;
 internal class Program
 {
     // השדה הראשי שדרכו ניגשים לכל הלוגיקה
-    static readonly IBl s_bl = Factory.Get();
+    static readonly IBl s_bl = Factory.Get;
 
     static void Main(string[] args)
     {

@@ -18,7 +18,7 @@ public class Program
 
             if (answer?.ToUpper() == "Y")
             {
-                Initialization.Initialize(s_dal);
+                Initialization.Initialize();
             }
         }
         catch (DalIdNotFoundExceptions ex)

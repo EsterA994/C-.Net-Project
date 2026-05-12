@@ -1,8 +1,15 @@
 ﻿using DalApi;
 
 namespace Dal;
-public class DalList : IDal
+internal sealed class DalList : IDal
 {
+
+    public static readonly DalList instance = new DalList();
+    
+    public static DalList Instance { get { return instance; } }
+
+    private DalList() { }
+
     public IProduct Product => new ProductImplementation();
 
     public ISale Sale => new SaleImplementation();

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCustomer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Customer>
+    <CustId>100001</CustId>
+    <CustName>אורי כהן</CustName>
+    <CustAddress>רחוב הרצל 23</CustAddress>
+    <CustPhone>027651234</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100002</CustId>
+    <CustName>נועה לוי</CustName>
+    <CustAddress>שדרות ירושלים 145</CustAddress>
+    <CustPhone>025553789</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100003</CustId>
+    <CustName>יונתן מזרחי</CustName>
+    <CustAddress>רחוב בן גוריון 67</CustAddress>
+    <CustPhone>037894561</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100004</CustId>
+    <CustName>תמר אביטל</CustName>
+    <CustAddress>רחוב הנשיא 34</CustAddress>
+    <CustPhone>025678234</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100005</CustId>
+    <CustName>אליעזר ברק</CustName>
+    <CustAddress>שכונת רמות 89</CustAddress>
+    <CustPhone>037652398</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100006</CustId>
+    <CustName>שירה דוד</CustName>
+    <CustAddress>רחוב הרב קוק 12</CustAddress>
+    <CustPhone>098765432</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100007</CustId>
+    <CustName>דניאל שמעוני</CustName>
+    <CustAddress>רחוב סוקולוב 56</CustAddress>
+    <CustPhone>025559876</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100008</CustId>
+    <CustName>רחל פרידמן</CustName>
+    <CustAddress>שדרות בן צבי 103</CustAddress>
+    <CustPhone>027893456</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100009</CustId>
+    <CustName>עמית גולן</CustName>
+    <CustAddress>רחוב ז'בוטינסקי 78</CustAddress>
+    <CustPhone>037651290</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100010</CustId>
+    <CustName>יעל רוזנברג</CustName>
+    <CustAddress>רחוב ביאליק 45</CustAddress>
+    <CustPhone>089743210</CustPhone>
+  </Customer>
+</ArrayOfCustomer>

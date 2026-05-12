@@ -1,7 +1,9 @@
-﻿using BlImplementation;
+﻿﻿using BlImplementation;
+
 namespace BlApi;
 
 public static class Factory
 {
-    public static IBl Get() => new Bl();
+    public static IBl Get { get { return new Bl(); } }
+
 }

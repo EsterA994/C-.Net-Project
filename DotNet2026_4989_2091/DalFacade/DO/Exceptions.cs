@@ -17,5 +17,5 @@ public class DalIdAlreadyExistExceptions : Exception
 [Serializable]
 public class DalConfigException : Exception
 {
-    public DalConfigException(string msg) : base(msg) { }
+    public DalConfigException(string message) : base(message) { }
 }
