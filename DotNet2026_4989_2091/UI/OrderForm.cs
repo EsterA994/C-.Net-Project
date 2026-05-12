@@ -8,7 +8,7 @@ namespace UI
 {
     public partial class OrderForm : Form
     {
-        private readonly IBl _bl = BL.Factory.Get();
+        static readonly IBl s_bl = Factory.Get;
         private BO.Order _currentOrder; // שמירת ההזמנה שקיבלנו מהמסך הקודם
 
         // הבנאי מעדכן את המשתנה המקומי באובייקט שהגיע מה-CustomerDetailsForm
@@ -21,7 +21,7 @@ namespace UI
         private void OrderForm_Load(object sender, EventArgs e)
         {
             // טעינת רשימת המוצרים ל-ComboBox כדי שהמשתמש יוכל לבחור
-            comboProducts.DataSource = _bl.Product.ReadAll().ToList();
+            comboProducts.DataSource = s_bl.Product.ReadAll().ToList();
             comboProducts.DisplayMember = "ProdName"; // מה שיוצג למשתמש
             comboProducts.ValueMember = "ProdId";     // הערך שיחזור בקוד
         }
@@ -34,7 +34,7 @@ namespace UI
                 int amount = (int)numAmount.Value;
 
                 // קריאה ל-BL: הוא יוסיף ל-List ויחשב מחיר סופי (כולל הנחת מועדון!)
-                _bl.Order.AddProductToOrder(_currentOrder, pId, amount);
+                s_bl.Order.AddProductToOrder(_currentOrder, pId, amount);
 
                 // רענון התצוגה של הטבלה
                 UpdateUI();

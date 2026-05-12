@@ -72,13 +72,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using BL;
+using BlApi;
 using BO;
 
 namespace UI
 {
     public partial class SalesForm : Form
     {
-        private readonly IBl _bl = BL.Factory.Get();
+        static readonly IBl s_bl = Factory.Get;
 
         public SalesForm()
         {
@@ -95,7 +96,7 @@ namespace UI
         {
             try
             {
-                SalesGrid.DataSource = _bl.Sale.ReadAll().ToList();
+                SalesGrid.DataSource = s_bl.Sale.ReadAll().ToList();
             }
             catch (Exception ex)
             {
@@ -118,7 +119,7 @@ namespace UI
         private void SearchBTN_Click(object sender, EventArgs e)
         {
             string text = valueSearch.Text.Trim();
-            var allSales = _bl.Sale.ReadAll();
+            var allSales = s_bl.Sale.ReadAll();
 
             if (string.IsNullOrEmpty(text))
             {
@@ -129,7 +130,7 @@ namespace UI
             if (SearchByComboBox.Text == "מזהה")
                 SalesGrid.DataSource = allSales.Where(s => s.SaleId.ToString().Contains(text)).ToList();
             else if (SearchByComboBox.Text == "שם מוצר")
-                SalesGrid.DataSource = allSales.Where(s => _bl.Product.Read(s.ProdId)?.ProdName.Contains(text) ?? false).ToList();
+                SalesGrid.DataSource = allSales.Where(s => s_bl.Product.Read(s.ProdId)?.ProdName.Contains(text) ?? false).ToList();
             else if (SearchByComboBox.Text == "מחיר")
                 SalesGrid.DataSource = allSales.Where(s => s.PriceInSale.ToString().Contains(text)).ToList();
         }
