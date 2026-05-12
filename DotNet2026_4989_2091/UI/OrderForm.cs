@@ -54,5 +54,12 @@ namespace UI
             // עדכון מחיר סופי על המסך
             lblTotal.Text = $"סה\"כ לתשלום: {_currentOrder.FinalPrice:C}";
         }
+
+        private void FinishBtn_Click(object sender, EventArgs e)
+        {
+            DoOrderForm doOrderForm = new DoOrderForm(lblTotal.Text);
+            doOrderForm.ShowDialog();
+        }
+        
     }
 }

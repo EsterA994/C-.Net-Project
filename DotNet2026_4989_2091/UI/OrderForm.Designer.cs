@@ -18,65 +18,88 @@
 
         private void InitializeComponent()
         {
-            this.comboProducts = new System.Windows.Forms.ComboBox();
-            this.numAmount = new System.Windows.Forms.NumericUpDown();
-            this.AddProductBtn = new System.Windows.Forms.Button();
-            this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.FinishBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
-            this.SuspendLayout();
-
+            comboProducts = new ComboBox();
+            numAmount = new NumericUpDown();
+            AddProductBtn = new Button();
+            dgvItems = new DataGridView();
+            lblTotal = new Label();
+            FinishBtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)numAmount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
+            SuspendLayout();
+            // 
             // comboProducts
-            this.comboProducts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboProducts.Location = new System.Drawing.Point(30, 30);
-            this.comboProducts.Size = new System.Drawing.Size(200, 28);
-
-            // numAmount (בחירת כמות)
-            this.numAmount.Location = new System.Drawing.Point(250, 30);
-            this.numAmount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            this.numAmount.Value = new decimal(new int[] { 1, 0, 0, 0 });
-
+            // 
+            comboProducts.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboProducts.Location = new Point(30, 30);
+            comboProducts.Name = "comboProducts";
+            comboProducts.Size = new Size(200, 23);
+            comboProducts.TabIndex = 0;
+            // 
+            // numAmount
+            // 
+            numAmount.Location = new Point(250, 30);
+            numAmount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numAmount.Name = "numAmount";
+            numAmount.Size = new Size(120, 23);
+            numAmount.TabIndex = 1;
+            numAmount.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
             // AddProductBtn
-            this.AddProductBtn.Location = new System.Drawing.Point(400, 30);
-            this.AddProductBtn.Text = "הוסף לסל";
-            this.AddProductBtn.Click += new System.EventHandler(this.AddProductBtn_Click);
-
-            // dgvItems (ה-Grid שמציג את ההזמנה)
-            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Location = new System.Drawing.Point(30, 80);
-            this.dgvItems.Size = new System.Drawing.Size(700, 250);
-            this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-
-            // lblTotal (מחיר סופי)
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTotal.Location = new System.Drawing.Point(30, 350);
-            this.lblTotal.Text = "סה\"כ: 0.00 ש\"ח";
-
+            // 
+            AddProductBtn.Location = new Point(400, 30);
+            AddProductBtn.Name = "AddProductBtn";
+            AddProductBtn.Size = new Size(75, 23);
+            AddProductBtn.TabIndex = 2;
+            AddProductBtn.Text = "הוסף לסל";
+            AddProductBtn.Click += AddProductBtn_Click;
+            // 
+            // dgvItems
+            // 
+            dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvItems.Location = new Point(30, 80);
+            dgvItems.Name = "dgvItems";
+            dgvItems.Size = new Size(700, 250);
+            dgvItems.TabIndex = 3;
+            // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTotal.Location = new Point(30, 350);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(149, 25);
+            lblTotal.TabIndex = 4;
+            lblTotal.Text = "סה\"כ: 0.00 ש\"ח";
+            // 
             // FinishBtn
-            this.FinishBtn.Location = new System.Drawing.Point(600, 350);
-            this.FinishBtn.Size = new System.Drawing.Size(130, 45);
-            this.FinishBtn.Text = "סיום והדפסה";
-            this.FinishBtn.BackColor = System.Drawing.Color.LightGreen;
-            // הערה: יש להוסיף את האירוע FinishBtn_Click ב-OrderForm.cs
-
-            // OrderForm Setup
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboProducts);
-            this.Controls.Add(this.numAmount);
-            this.Controls.Add(this.AddProductBtn);
-            this.Controls.Add(this.dgvItems);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.FinishBtn);
-            this.Load += new System.EventHandler(this.OrderForm_Load);
-            this.Name = "OrderForm";
-            this.Text = "ניהול סל קניות";
-            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            FinishBtn.BackColor = Color.LightGreen;
+            FinishBtn.Location = new Point(600, 350);
+            FinishBtn.Name = "FinishBtn";
+            FinishBtn.Size = new Size(130, 45);
+            FinishBtn.TabIndex = 5;
+            FinishBtn.Text = "סיום והדפסה";
+            FinishBtn.UseVisualStyleBackColor = false;
+            FinishBtn.Click += FinishBtn_Click;
+            // 
+            // OrderForm
+            // 
+            ClientSize = new Size(800, 450);
+            Controls.Add(comboProducts);
+            Controls.Add(numAmount);
+            Controls.Add(AddProductBtn);
+            Controls.Add(dgvItems);
+            Controls.Add(lblTotal);
+            Controls.Add(FinishBtn);
+            Name = "OrderForm";
+            Text = "ניהול סל קניות";
+            Load += OrderForm_Load;
+            ((System.ComponentModel.ISupportInitialize)numAmount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }
