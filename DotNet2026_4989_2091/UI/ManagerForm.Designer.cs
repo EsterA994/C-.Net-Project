@@ -38,56 +38,60 @@ partial class ManagerForm
         // 
         greetingLabel.AutoSize = true;
         greetingLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        greetingLabel.Location = new Point(320, 20);
+        greetingLabel.Location = new Point(280, 15);
         greetingLabel.Name = "greetingLabel";
-        greetingLabel.Size = new Size(169, 41);
+        greetingLabel.Size = new Size(135, 32);
         greetingLabel.TabIndex = 0;
         greetingLabel.Text = "שלום מנהל";
         greetingLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // ProductsBTN
         // 
-        ProductsBTN.Location = new Point(50, 100);
+        ProductsBTN.Location = new Point(44, 75);
+        ProductsBTN.Margin = new Padding(3, 2, 3, 2);
         ProductsBTN.Name = "ProductsBTN";
-        ProductsBTN.Size = new Size(204, 185);
+        ProductsBTN.Size = new Size(178, 139);
         ProductsBTN.TabIndex = 1;
         ProductsBTN.Text = "מוצרים";
         ProductsBTN.UseVisualStyleBackColor = true;
         // 
         // CustomersBTN
         // 
-        CustomersBTN.Location = new Point(300, 100);
+        CustomersBTN.Location = new Point(262, 75);
+        CustomersBTN.Margin = new Padding(3, 2, 3, 2);
         CustomersBTN.Name = "CustomersBTN";
-        CustomersBTN.Size = new Size(189, 185);
+        CustomersBTN.Size = new Size(165, 139);
         CustomersBTN.TabIndex = 2;
         CustomersBTN.Text = "לקוחות";
         CustomersBTN.UseVisualStyleBackColor = true;
+        CustomersBTN.Click += CustomersBTN_Click_1;
         // 
         // SalesBTN
         // 
         SalesBTN.AutoEllipsis = true;
-        SalesBTN.Location = new Point(516, 100);
+        SalesBTN.Location = new Point(452, 75);
+        SalesBTN.Margin = new Padding(3, 2, 3, 2);
         SalesBTN.Name = "SalesBTN";
-        SalesBTN.Size = new Size(234, 185);
+        SalesBTN.Size = new Size(205, 139);
         SalesBTN.TabIndex = 3;
         SalesBTN.Text = "מבצעים";
         SalesBTN.UseVisualStyleBackColor = true;
         // 
         // ManagerForm
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 499);
+        ClientSize = new Size(700, 374);
         Controls.Add(SalesBTN);
         Controls.Add(CustomersBTN);
         Controls.Add(ProductsBTN);
         Controls.Add(greetingLabel);
+        Margin = new Padding(3, 2, 3, 2);
         Name = "ManagerForm";
         Text = "Manager";
         Load += ManagerForm_Load;
         ResumeLayout(false);
         PerformLayout();
-
     }
 
     #endregion

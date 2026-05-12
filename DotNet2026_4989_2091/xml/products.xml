@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct>
   <Product>
-    <ProdId>100001</ProdId>
-    <ProdName>משחק הזיכרון - גדולי ישראל</ProdName>
-    <ProdCategory>קופסא</ProdCategory>
-    <Price>45.90</Price>
-    <QuantityInStock>25</QuantityInStock>
-  </Product>
-  <Product>
     <ProdId>100002</ProdId>
     <ProdName>פאזל 1000 חלקים - ירושלים שבין החומות</ProdName>
     <ProdCategory>קופסא</ProdCategory>
@@ -118,5 +111,12 @@
     <ProdCategory>אלקטרוניקה</ProdCategory>
     <Price>2</Price>
     <QuantityInStock>2</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1021</ProdId>
+    <ProdName>חיע</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>4</Price>
+    <QuantityInStock>5</QuantityInStock>
   </Product>
 </ArrayOfProduct>

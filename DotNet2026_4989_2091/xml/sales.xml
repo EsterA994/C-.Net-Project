@@ -71,16 +71,6 @@
     <StartDate>0001-01-01T00:00:00</StartDate>
   </Sale>
   <Sale>
-    <SaleId>49</SaleId>
-    <ProdId>100001</ProdId>
-    <MinRequireQuantity>2</MinRequireQuantity>
-    <PriceInSale>119</PriceInSale>
-    <JustForClub>true</JustForClub>
-    <StartDateSale>2024-12-22T00:00:00</StartDateSale>
-    <StopDateSale>2025-01-12T00:00:00</StopDateSale>
-    <StartDate>0001-01-01T00:00:00</StartDate>
-  </Sale>
-  <Sale>
     <SaleId>50</SaleId>
     <ProdId>100002</ProdId>
     <MinRequireQuantity>1</MinRequireQuantity>

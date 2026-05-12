@@ -7,12 +7,6 @@
     <CustPhone>027651234</CustPhone>
   </Customer>
   <Customer>
-    <CustId>100002</CustId>
-    <CustName>נועה לוי</CustName>
-    <CustAddress>שדרות ירושלים 145</CustAddress>
-    <CustPhone>025553789</CustPhone>
-  </Customer>
-  <Customer>
     <CustId>100003</CustId>
     <CustName>יונתן מזרחי</CustName>
     <CustAddress>רחוב בן גוריון 67</CustAddress>
@@ -59,5 +53,11 @@
     <CustName>יעל רוזנברג</CustName>
     <CustAddress>רחוב ביאליק 45</CustAddress>
     <CustPhone>089743210</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>100002</CustId>
+    <CustName>נועה לוי</CustName>
+    <CustAddress>שדרות ירושלים 145</CustAddress>
+    <CustPhone>025553789</CustPhone>
   </Customer>
 </ArrayOfCustomer>
