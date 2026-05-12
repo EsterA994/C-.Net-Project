@@ -1,13 +1,14 @@
 ﻿using System;
 using BO;
-using BL;
+using BlApi;
+
 
 namespace BlTest;
 
 internal class Program
 {
     // השדה הראשי שדרכו ניגשים לכל הלוגיקה
-    static readonly IBl s_bl = Factory.Get();
+    static readonly IBl s_bl = Factory.Get;
 
     static void Main(string[] args)
     {
@@ -48,6 +49,7 @@ internal class Program
         int choice = ReadInt("Choice: ");
 
         try
+        
         {
             switch (choice)
             {

@@ -1,6 +1,6 @@
-﻿namespace BL
+﻿namespace Bltest;
+
+internal class BlApi
 {
-    internal class BlApi
-    {
-    }
+
 }

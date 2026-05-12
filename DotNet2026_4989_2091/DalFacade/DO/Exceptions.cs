@@ -10,3 +10,12 @@ public class DalIdAlreadyExistExceptions : Exception
 {
     public DalIdAlreadyExistExceptions(string message) : base(message) { }
 }
+
+/// <summary>
+/// /
+/// </summary>
+[Serializable]
+public class DalConfigException : Exception
+{
+    public DalConfigException(string message) : base(message) { }
+}

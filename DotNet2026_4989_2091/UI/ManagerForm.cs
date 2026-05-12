@@ -33,7 +33,5 @@ public partial class ManagerForm : Form
 
     private void CustomersBTN_Click(object sender, EventArgs e)
     {
-        var customersForm = new CustomersForm();
-        customersForm.ShowDialog();
     }
 }

@@ -1,9 +1,10 @@
-﻿using Dal;
+﻿using DalTest;
 using DalApi;
 using DO;
 using System.Reflection;
 using Tools;
 
+namespace Dal;
 public class Program
 {
     private static IDal s_dal = DalApi.Factory.Get;
@@ -17,7 +18,7 @@ public class Program
 
             if (answer?.ToUpper() == "Y")
             {
-                Initialization.Initialize(s_dal);
+                Initialization.Initialize();
             }
         }
         catch (DalIdNotFoundExceptions ex)

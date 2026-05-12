@@ -10,6 +10,7 @@
 	  <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
 	  <RootNamespace>Dal</RootNamespace>
 	  <BaseOutputPath>$(SolutionDir)\bin\</BaseOutputPath>
+	  <RootNamespace/>
   </PropertyGroup>
 
   <ItemGroup>

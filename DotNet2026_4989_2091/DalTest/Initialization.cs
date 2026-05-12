@@ -1,6 +1,6 @@
 ﻿using DO;
 using DalApi;
-//namespace DalTest;
+namespace DalTest;
 
 public static class Initialization
 {
@@ -49,9 +49,9 @@ public static class Initialization
         s_dal.Sale.Create(new Sale(110, 100005, 3, 139, true, new DateTime(2024, 12, 18), new DateTime(2025, 1, 18)));
     }
     
-    public static void Initialize(IDal dal)
+    public static void Initialize()
     {
-        s_dal = dal;
+        s_dal = DalApi.Factory.Get;
         CreateProducts();
         CreateCustomers();
         CreateSales();

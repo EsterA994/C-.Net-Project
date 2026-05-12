@@ -1,6 +1,7 @@
-﻿using static BO.Tools;
+﻿using BlApi;
+using static BO.Tools;
 
-namespace BL.BlImplementation;
+namespace BlImplementation;
 
 internal class OrderImplementation : IOrder
 {

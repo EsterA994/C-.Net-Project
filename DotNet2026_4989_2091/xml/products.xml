@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct>
+  <Product>
+    <ProdId>100001</ProdId>
+    <ProdName>משחק הזיכרון - גדולי ישראל</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>45.90</Price>
+    <QuantityInStock>25</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>100002</ProdId>
+    <ProdName>פאזל 1000 חלקים - ירושלים שבין החומות</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>89.00</Price>
+    <QuantityInStock>12</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>100003</ProdId>
+    <ProdName>ערכת יצירה - הכנת חנוכייה מאלומיניום</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>35.00</Price>
+    <QuantityInStock>50</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>100004</ProdId>
+    <ProdName>משחק מסלול - "בדרכי אבות"</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>65.50</Price>
+    <QuantityInStock>8</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>100005</ProdId>
+    <ProdName>ספר צביעה - סיפורי צדיקים</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>15.00</Price>
+    <QuantityInStock>100</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1009</ProdId>
+    <ProdName>שחמט אלקטרוני</ProdName>
+    <ProdCategory>אלקטרוניקה</ProdCategory>
+    <Price>60</Price>
+    <QuantityInStock>20</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1010</ProdId>
+    <ProdName>הלך לי קלף</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>50</Price>
+    <QuantityInStock>10</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1011</ProdId>
+    <ProdName>אנדרלמוסיה</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>80</Price>
+    <QuantityInStock>15</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1012</ProdId>
+    <ProdName>ביגדיל</ProdName>
+    <ProdCategory>קלפים</ProdCategory>
+    <Price>50</Price>
+    <QuantityInStock>10</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1013</ProdId>
+    <ProdName>נמל תעופה</ProdName>
+    <ProdCategory>קופסא</ProdCategory>
+    <Price>120</Price>
+    <QuantityInStock>8</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1014</ProdId>
+    <ProdName>חבל קפיצה ארוך</ProdName>
+    <ProdCategory>חצר</ProdCategory>
+    <Price>35</Price>
+    <QuantityInStock>20</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1015</ProdId>
+    <ProdName>בובת ניו יורק</ProdName>
+    <ProdCategory>פעוטות</ProdCategory>
+    <Price>139</Price>
+    <QuantityInStock>16</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1016</ProdId>
+    <ProdName>Taki</ProdName>
+    <ProdCategory>קלפים</ProdCategory>
+    <Price>40</Price>
+    <QuantityInStock>10</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1017</ProdId>
+    <ProdName>משחק מגנטים</ProdName>
+    <ProdCategory>הרכבה</ProdCategory>
+    <Price>230</Price>
+    <QuantityInStock>12</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1018</ProdId>
+    <ProdName>כדור</ProdName>
+    <ProdCategory>חצר</ProdCategory>
+    <Price>12</Price>
+    <QuantityInStock>14</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1019</ProdId>
+    <ProdName>1</ProdName>
+    <ProdCategory>חצר</ProdCategory>
+    <Price>1</Price>
+    <QuantityInStock>1</QuantityInStock>
+  </Product>
+  <Product>
+    <ProdId>1020</ProdId>
+    <ProdName>1</ProdName>
+    <ProdCategory>אלקטרוניקה</ProdCategory>
+    <Price>2</Price>
+    <QuantityInStock>2</QuantityInStock>
+  </Product>
+</ArrayOfProduct>
