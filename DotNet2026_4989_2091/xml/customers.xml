@@ -60,4 +60,28 @@
     <CustAddress>רחוב ביאליק 45</CustAddress>
     <CustPhone>089743210</CustPhone>
   </Customer>
+  <Customer>
+    <CustId>1</CustId>
+    <CustName>a</CustName>
+    <CustAddress>a</CustAddress>
+    <CustPhone>0527600000</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>2</CustId>
+    <CustName>A</CustName>
+    <CustAddress>A</CustAddress>
+    <CustPhone>1111111111</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>3</CustId>
+    <CustName>1</CustName>
+    <CustAddress>1</CustAddress>
+    <CustPhone>1111111111</CustPhone>
+  </Customer>
+  <Customer>
+    <CustId>4</CustId>
+    <CustName>4</CustName>
+    <CustAddress>4</CustAddress>
+    <CustPhone>1111111111</CustPhone>
+  </Customer>
 </ArrayOfCustomer>

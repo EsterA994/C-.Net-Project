@@ -24,16 +24,19 @@ namespace UI
 
             // ולידציה 2: בדיקה שהשם לא ריק (textBox1 לפי ה-Designer שלך)
             string name = textBox1.Text.Trim();
-            if (string.IsNullOrEmpty(name))
+            string address = InpuAddress.Text.Trim();
+            string phone = InputP.Text.Trim();
+
+            if (string.IsNullOrEmpty(name)||string.IsNullOrEmpty(address)||string.IsNullOrEmpty(phone))
             {
-                MessageBox.Show("נא להזין שם לקוח.", "שגיאה");
+                MessageBox.Show("יש להין את כל הפרטים.", "שגיאה");
                 return;
             }
 
             try
             {
                 // קריאה לפונקציית העזר שבודקת קיום לקוח
-                BO.Customer customer = GetOrCreateCustomer(id, name);
+                BO.Customer customer = GetOrCreateCustomer(id, name, address, phone);
 
                 // אם חזר null (בגלל אי התאמת שם), עוצרים
                 if (customer == null) return;
@@ -58,7 +61,7 @@ namespace UI
             }
         }
 
-        private BO.Customer GetOrCreateCustomer(int id, string name)
+        private BO.Customer GetOrCreateCustomer(int id, string name, string address, string phone)
         {
             try
             {
@@ -66,9 +69,9 @@ namespace UI
                 var existing = _bl.Customer.Read(id);
 
                 // בדיקת אבטחה: אם קיים, האם זה אותו אדם?
-                if (existing.CustName != name)
+                if (existing.CustName != name || existing.CustAddress != address || existing.CustPhone != phone)
                 {
-                    MessageBox.Show("הלקוח קיים במערכת עם שם אחר. לא ניתן לשנות פרטים.", "שגיאת אימות");
+                    MessageBox.Show("הלקוח קיים במערכת עם פרטים אחרים. לא ניתן לשנות פרטים.", "שגיאת אימות");
                     return null;
                 }
                 return existing;
@@ -80,8 +83,8 @@ namespace UI
                 {
                     CustId = id,
                     CustName = name,
-                    CustPhone = InputPhone.Text,
-                    CustAddress = InputAddress.Text
+                    CustAddress = address,
+                    CustPhone = phone
                 };
                 _bl.Customer.Create(newCust);
                 return newCust;
